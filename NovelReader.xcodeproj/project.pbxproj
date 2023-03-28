@@ -15,6 +15,7 @@
 		5538ADCF29D35EB700D78B32 /* NovelReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADCE29D35EB700D78B32 /* NovelReaderTests.swift */; };
 		5538ADD929D35EB700D78B32 /* NovelReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADD829D35EB700D78B32 /* NovelReaderUITests.swift */; };
 		5538ADDB29D35EB700D78B32 /* NovelReaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADDA29D35EB700D78B32 /* NovelReaderUITestsLaunchTests.swift */; };
+		5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADEB29D37ED600D78B32 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5538ADD429D35EB700D78B32 /* NovelReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NovelReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5538ADD829D35EB700D78B32 /* NovelReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelReaderUITests.swift; sourceTree = "<group>"; };
 		5538ADDA29D35EB700D78B32 /* NovelReaderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelReaderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5538ADEB29D37ED600D78B32 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		5538ADB629D35EB600D78B32 /* NovelReader */ = {
 			isa = PBXGroup;
 			children = (
+				5538ADEA29D37ECB00D78B32 /* Services */,
 				5538ADE929D361B200D78B32 /* Screens */,
 				5538ADE729D3618E00D78B32 /* Application */,
 			);
@@ -146,6 +149,14 @@
 				5538ADBB29D35EB600D78B32 /* ViewController.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		5538ADEA29D37ECB00D78B32 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5538ADEB29D37ED600D78B32 /* Coordinator.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */,
 				5538ADBC29D35EB600D78B32 /* ViewController.swift in Sources */,
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
