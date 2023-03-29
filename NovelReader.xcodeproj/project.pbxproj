@@ -18,6 +18,8 @@
 		5538ADEF29D3812800D78B32 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADEE29D3812800D78B32 /* UINavigationController.swift */; };
 		5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */; };
 		5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF529D4678100D78B32 /* Coordinatable.swift */; };
+		5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF929D46A7800D78B32 /* Novel.swift */; };
+		5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADFB29D46A8200D78B32 /* Chapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		5538ADEE29D3812800D78B32 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewController.swift; sourceTree = "<group>"; };
 		5538ADF529D4678100D78B32 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		5538ADF929D46A7800D78B32 /* Novel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novel.swift; sourceTree = "<group>"; };
+		5538ADFB29D46A8200D78B32 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 		5538ADE929D361B200D78B32 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5538ADF729D46A6500D78B32 /* Shared */,
 				5538ADF029D4668B00D78B32 /* NovelCollection */,
 			);
 			path = Screens;
@@ -187,6 +192,23 @@
 				5538ADF529D4678100D78B32 /* Coordinatable.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		5538ADF729D46A6500D78B32 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5538ADF829D46A6B00D78B32 /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5538ADF829D46A6B00D78B32 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5538ADF929D46A7800D78B32 /* Novel.swift */,
+				5538ADFB29D46A8200D78B32 /* Chapter.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +347,8 @@
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
 				5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */,
 				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
+				5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */,
+				5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
