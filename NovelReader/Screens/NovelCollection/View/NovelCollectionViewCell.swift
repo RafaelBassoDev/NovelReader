@@ -7,6 +7,6 @@
 
 import UIKit
 
-class NovelCollectionViewCell: UICollectionViewCell {
-    
+class NovelCollectionViewCell: UICollectionViewCell, CellIdentifiable {
+    static var reuseIdentifier: String = "NovelCollectionCell"
 }
