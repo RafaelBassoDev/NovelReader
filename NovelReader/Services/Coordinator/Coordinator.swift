@@ -15,7 +15,7 @@ final class Coordinator {
     }
     
     func start() {
-        let viewController = ViewController()
+        let viewController = NovelCollectionViewController()
         
         viewController.coordinator = self
         
