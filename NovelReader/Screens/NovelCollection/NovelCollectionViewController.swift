@@ -7,53 +7,59 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class NovelCollectionViewController: UICollectionViewController, Coordinatable {
     weak var coordinator: Coordinator?
     
+    let dataSource = [
+        Novel(
+            title: "A Will Eternal",
+            chapters: [
+                Chapter(title: "Chapter 01", content: "some text")
+            ]
+        ),
+        Novel(
+            title: "Immortal renegade",
+            chapters: [
+                Chapter(title: "Chapter 01", content: "some text")
+            ]
+        ),
+        Novel(
+            title: "I Shal Seal The Heavens",
+            chapters: [
+                Chapter(title: "Chapter 01", content: "some text")
+            ]
+        )
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        self.collectionView.register(NovelCollectionViewCell.self, forCellWithReuseIdentifier: NovelCollectionViewCell.reuseIdentifier)
     }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension NovelCollectionViewController {
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return dataSource.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NovelCollectionViewCell.reuseIdentifier, for: indexPath) as? NovelCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        let novel = dataSource[indexPath.row]
+        
+        cell.configure(with: novel)
+        
         return cell
     }
+}
 
     // MARK: UICollectionViewDelegate
 
