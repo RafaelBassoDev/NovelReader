@@ -31,6 +31,22 @@ class NovelCollectionViewController: UICollectionViewController, Coordinatable {
         )
     ]
     
+    init() {
+        let layout = UICollectionViewFlowLayout()
+        let width = 180
+        let height = 300
+        layout.itemSize = CGSize(width: width, height: height)
+        layout.estimatedItemSize = CGSize(width: width, height: height)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.minimumLineSpacing = 20
+        
+        super.init(collectionViewLayout: layout)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.register(NovelCollectionViewCell.self, forCellWithReuseIdentifier: NovelCollectionViewCell.reuseIdentifier)
@@ -65,6 +81,7 @@ extension NovelCollectionViewController {
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(dataSource[indexPath.row].title)
+        let novel = dataSource[indexPath.row]
+        coordinator?.showChapterList(for: novel)
     }
 }
