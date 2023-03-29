@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol CellIdentifiable: AnyObject {
+    static var reuseIdentifier: String { get }
+}
