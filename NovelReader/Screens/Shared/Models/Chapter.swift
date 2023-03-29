@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Chapter {
+    let title: String
+    let content: String
+}
