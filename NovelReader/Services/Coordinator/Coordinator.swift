@@ -15,7 +15,10 @@ final class Coordinator {
     }
     
     func start() {
-        let viewController = NovelCollectionViewController()
+        
+        let layout = UICollectionViewFlowLayout()
+        
+        let viewController = NovelCollectionViewController(collectionViewLayout: layout)
         
         viewController.coordinator = self
         
