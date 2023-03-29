@@ -38,7 +38,7 @@ extension ChapterListViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,6 +46,7 @@ extension ChapterListViewController {
         
         var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
         backgroundConfiguration.cornerRadius = 10
+        backgroundConfiguration.backgroundInsets = NSDirectionalEdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0)
         cell.backgroundConfiguration = backgroundConfiguration
         
         var contentConfiguration = cell.defaultContentConfiguration()
