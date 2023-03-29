@@ -21,6 +21,7 @@
 		5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF929D46A7800D78B32 /* Novel.swift */; };
 		5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADFB29D46A8200D78B32 /* Chapter.swift */; };
 		5538AE0129D46F5700D78B32 /* NovelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0029D46F5700D78B32 /* NovelCollectionViewCell.swift */; };
+		5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0329D4700800D78B32 /* CellIdentifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		5538ADF929D46A7800D78B32 /* Novel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novel.swift; sourceTree = "<group>"; };
 		5538ADFB29D46A8200D78B32 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		5538AE0029D46F5700D78B32 /* NovelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewCell.swift; sourceTree = "<group>"; };
+		5538AE0329D4700800D78B32 /* CellIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 		5538ADF729D46A6500D78B32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5538AE0229D46FE400D78B32 /* Protocols */,
 				5538ADF829D46A6B00D78B32 /* Models */,
 			);
 			path = Shared;
@@ -220,6 +223,14 @@
 				5538AE0029D46F5700D78B32 /* NovelCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5538AE0229D46FE400D78B32 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5538AE0329D4700800D78B32 /* CellIdentifiable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +368,7 @@
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
 				5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */,
+				5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */,
 				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
 				5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */,
 				5538AE0129D46F5700D78B32 /* NovelCollectionViewCell.swift in Sources */,
