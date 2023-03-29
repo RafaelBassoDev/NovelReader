@@ -22,6 +22,7 @@
 		5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADFB29D46A8200D78B32 /* Chapter.swift */; };
 		5538AE0129D46F5700D78B32 /* NovelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0029D46F5700D78B32 /* NovelCollectionViewCell.swift */; };
 		5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0329D4700800D78B32 /* CellIdentifiable.swift */; };
+		5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		5538ADFB29D46A8200D78B32 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		5538AE0029D46F5700D78B32 /* NovelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewCell.swift; sourceTree = "<group>"; };
 		5538AE0329D4700800D78B32 /* CellIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
+		5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		5538ADE929D361B200D78B32 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5538AE0629D4BA3300D78B32 /* ChapterList */,
 				5538ADF729D46A6500D78B32 /* Shared */,
 				5538ADF029D4668B00D78B32 /* NovelCollection */,
 			);
@@ -231,6 +234,14 @@
 				5538AE0329D4700800D78B32 /* CellIdentifiable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5538AE0629D4BA3300D78B32 /* ChapterList */ = {
+			isa = PBXGroup;
+			children = (
+				5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */,
+			);
+			path = ChapterList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +401,7 @@
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
 				5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */,
+				5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */,
 				5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */,
 				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
 				5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */,
