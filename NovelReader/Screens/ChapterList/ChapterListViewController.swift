@@ -13,7 +13,7 @@ class ChapterListViewController: UITableViewController, Coordinatable {
     
     init(chapters: [Chapter]) {
         self.chapters = chapters
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .grouped)
     }
     
     required init?(coder: NSCoder) {
@@ -37,11 +37,23 @@ extension ChapterListViewController {
         return chapters.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        let cell = UITableViewCell()
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 
-        cell.backgroundColor = .red
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
+        backgroundConfiguration.cornerRadius = 10
+        cell.backgroundConfiguration = backgroundConfiguration
+        
+        var contentConfiguration = cell.defaultContentConfiguration()
+        contentConfiguration.text = chapters[indexPath.row].title
+        contentConfiguration.textProperties.font = UIFont.boldSystemFont(ofSize: 20)
+        contentConfiguration.textProperties.lineBreakMode = .byTruncatingTail
+        contentConfiguration.textProperties.numberOfLines = 2
+        cell.contentConfiguration = contentConfiguration
         
         return cell
     }
