@@ -18,6 +18,7 @@
 		5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADEB29D37ED600D78B32 /* Coordinator.swift */; };
 		5538ADEF29D3812800D78B32 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADEE29D3812800D78B32 /* UINavigationController.swift */; };
 		5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */; };
+		5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF529D4678100D78B32 /* Coordinatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5538ADEB29D37ED600D78B32 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		5538ADEE29D3812800D78B32 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewController.swift; sourceTree = "<group>"; };
+		5538ADF529D4678100D78B32 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				5538ADEB29D37ED600D78B32 /* Coordinator.swift */,
+				5538ADF529D4678100D78B32 /* Coordinatable.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
 				5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */,
+				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
