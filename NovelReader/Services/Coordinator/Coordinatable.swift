@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol Coordinatable {
+    var coordinator: Coordinator? { get set }
+}
