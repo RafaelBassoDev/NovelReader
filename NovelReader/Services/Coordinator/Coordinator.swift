@@ -15,7 +15,6 @@ final class Coordinator {
     }
     
     func start() {
-        
         let layout = UICollectionViewFlowLayout()
         
         let width = 180
