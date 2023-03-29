@@ -161,8 +161,8 @@
 		5538ADE929D361B200D78B32 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				5538AE0629D4BA3300D78B32 /* ChapterList */,
 				5538ADF729D46A6500D78B32 /* Shared */,
+				5538AE0629D4BA3300D78B32 /* ChapterList */,
 				5538ADF029D4668B00D78B32 /* NovelCollection */,
 			);
 			path = Screens;
