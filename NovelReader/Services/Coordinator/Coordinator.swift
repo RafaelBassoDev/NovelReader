@@ -15,21 +15,9 @@ final class Coordinator {
     }
     
     func start() {
-        let layout = UICollectionViewFlowLayout()
-        
-        let width = 180
-        let height = 300
-        layout.itemSize = CGSize(width: width, height: height)
-        layout.estimatedItemSize = CGSize(width: width, height: height)
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.minimumLineSpacing = 20
-        
-        let viewController = NovelCollectionViewController(collectionViewLayout: layout)
-        
+        let viewController = NovelCollectionViewController()
         viewController.coordinator = self
-        
         viewController.title = "Novels"
-        
         viewController.modalPresentationStyle = .fullScreen
         
         navigationController.pushViewController(viewController, animated: true)
@@ -37,5 +25,13 @@ final class Coordinator {
     
     func pop() {
         navigationController.popViewController(animated: true)
+    }
+    
+    func showChapterList(for novel: Novel) {
+        let viewController = ChapterListViewController(chapters: novel.chapters)
+        viewController.coordinator = self
+        viewController.title = "Chapters"
+        
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
