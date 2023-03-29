@@ -160,7 +160,7 @@
 		5538ADEA29D37ECB00D78B32 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5538ADEB29D37ED600D78B32 /* Coordinator.swift */,
+				5538ADF429D4674300D78B32 /* Coordinator */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -179,6 +179,14 @@
 				5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */,
 			);
 			path = NovelCollection;
+			sourceTree = "<group>";
+		};
+		5538ADF429D4674300D78B32 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				5538ADEB29D37ED600D78B32 /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
