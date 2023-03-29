@@ -7,6 +7,6 @@
 
 import UIKit
 
-class NovelCollectionViewController: UICollectionViewController {
-    
+class NovelCollectionViewController: UICollectionViewController, Coordinatable {
+    weak var coordinator: Coordinator?
 }
