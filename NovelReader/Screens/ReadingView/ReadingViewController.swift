@@ -70,10 +70,6 @@ class ReadingViewController: UIViewController, Coordinatable {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
@@ -86,6 +82,13 @@ class ReadingViewController: UIViewController, Coordinatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Settings",
+            style: .plain,
+            target: self,
+            action: #selector(settingButtonPressed)
+        )
         
         titleLabel.text = chapter.title
         contentText.text = chapter.content
@@ -101,6 +104,17 @@ class ReadingViewController: UIViewController, Coordinatable {
         setConstraints()
     }
     
+    @objc
+    func settingButtonPressed() {
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+}
+
+extension ReadingViewController {
     private func setConstraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
