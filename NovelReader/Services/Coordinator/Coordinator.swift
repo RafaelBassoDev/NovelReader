@@ -34,4 +34,11 @@ final class Coordinator {
         
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func showReadingView(for chapter: Chapter) {
+        let viewController = ReadingViewController(chapter: chapter)
+        viewController.coordinator = self
+        
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }
