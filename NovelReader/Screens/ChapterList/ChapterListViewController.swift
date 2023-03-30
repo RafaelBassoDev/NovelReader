@@ -49,10 +49,9 @@ extension ChapterListViewController {
         let cell = UITableViewCell()
         
         cell.selectionStyle = .none
+        cell.accessoryType = .disclosureIndicator
         
         var backgroundConfiguration = UIBackgroundConfiguration.listPlainCell()
-        backgroundConfiguration.strokeColor = .darkGray
-        backgroundConfiguration.strokeWidth = 1
         backgroundConfiguration.cornerRadius = 10
         backgroundConfiguration.backgroundInsets = NSDirectionalEdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4)
         cell.backgroundConfiguration = backgroundConfiguration
