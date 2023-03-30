@@ -24,6 +24,7 @@
 		5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0329D4700800D78B32 /* CellIdentifiable.swift */; };
 		5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */; };
 		5538AE0B29D4E95700D78B32 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */; };
+		5538AE0E29D6041000D78B32 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0D29D6041000D78B32 /* OptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		5538AE0329D4700800D78B32 /* CellIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 		5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewController.swift; sourceTree = "<group>"; };
 		5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
+		5538AE0D29D6041000D78B32 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				5538ADF729D46A6500D78B32 /* Shared */,
+				5538AE0C29D603F900D78B32 /* OptionsView */,
 				5538AE0929D4E91000D78B32 /* ReadingView */,
 				5538AE0629D4BA3300D78B32 /* ChapterList */,
 				5538ADF029D4668B00D78B32 /* NovelCollection */,
@@ -253,6 +256,14 @@
 				5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */,
 			);
 			path = ReadingView;
+			sourceTree = "<group>";
+		};
+		5538AE0C29D603F900D78B32 /* OptionsView */ = {
+			isa = PBXGroup;
+			children = (
+				5538AE0D29D6041000D78B32 /* OptionsViewController.swift */,
+			);
+			path = OptionsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +426,7 @@
 				5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */,
 				5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */,
 				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
+				5538AE0E29D6041000D78B32 /* OptionsViewController.swift in Sources */,
 				5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */,
 				5538AE0129D46F5700D78B32 /* NovelCollectionViewCell.swift in Sources */,
 				5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */,
