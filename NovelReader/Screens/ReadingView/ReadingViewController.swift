@@ -25,10 +25,16 @@ class ReadingViewController: UIViewController, Coordinatable {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 38)
+        label.font = UIFont.boldSystemFont(ofSize: 42)
         label.textAlignment = .left
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor(
+            red: 135 / 255,
+            green: 206 / 255,
+            blue: 235 / 255,
+            alpha: 1
+        )
         label.sizeToFit()
         return label
     }()
