@@ -47,7 +47,7 @@ class ReadingViewController: UIViewController, Coordinatable {
         config.buttonSize = .medium
         config.cornerStyle = .medium
         config.title = "Next"
-        config.baseBackgroundColor = .green
+        config.baseBackgroundColor = .systemBlue
         
         let button = UIButton(configuration: config)
         button.addAction(
@@ -66,6 +66,16 @@ class ReadingViewController: UIViewController, Coordinatable {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnSwipe = false
     }
     
     override func viewDidLoad() {
