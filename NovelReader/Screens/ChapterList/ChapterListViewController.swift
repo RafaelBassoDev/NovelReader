@@ -13,7 +13,7 @@ class ChapterListViewController: UITableViewController, Coordinatable {
     
     init(chapters: [Chapter]) {
         self.chapters = chapters
-        super.init(style: .grouped)
+        super.init(style: .plain)
     }
     
     required init?(coder: NSCoder) {
@@ -48,9 +48,13 @@ extension ChapterListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
+        cell.selectionStyle = .none
+        
+        var backgroundConfiguration = UIBackgroundConfiguration.listPlainCell()
+        backgroundConfiguration.strokeColor = .darkGray
+        backgroundConfiguration.strokeWidth = 1
         backgroundConfiguration.cornerRadius = 10
-        backgroundConfiguration.backgroundInsets = NSDirectionalEdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0)
+        backgroundConfiguration.backgroundInsets = NSDirectionalEdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4)
         cell.backgroundConfiguration = backgroundConfiguration
         
         var contentConfiguration = cell.defaultContentConfiguration()
