@@ -106,7 +106,7 @@ class ReadingViewController: UIViewController, Coordinatable {
     
     @objc
     func settingButtonPressed() {
-        
+        coordinator?.showOptions()
     }
     
     required init?(coder: NSCoder) {
