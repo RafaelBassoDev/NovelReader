@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OptionsViewController: UITableViewController {
+class SettingsViewController: UITableViewController {
 
     private enum FontSettings: String, CaseIterable {
         case fontFamily = "Font Family"
@@ -29,7 +29,7 @@ class OptionsViewController: UITableViewController {
     
 }
 
-extension OptionsViewController {
+extension SettingsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

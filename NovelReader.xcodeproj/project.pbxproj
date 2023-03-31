@@ -24,7 +24,7 @@
 		5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0329D4700800D78B32 /* CellIdentifiable.swift */; };
 		5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */; };
 		5538AE0B29D4E95700D78B32 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */; };
-		5538AE0E29D6041000D78B32 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0D29D6041000D78B32 /* OptionsViewController.swift */; };
+		5538AE0E29D6041000D78B32 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0D29D6041000D78B32 /* SettingsViewController.swift */; };
 		5538AE1129D72B7000D78B32 /* FontFamilySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,7 @@
 		5538AE0329D4700800D78B32 /* CellIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 		5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewController.swift; sourceTree = "<group>"; };
 		5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
-		5538AE0D29D6041000D78B32 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		5538AE0D29D6041000D78B32 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				5538AE0F29D72B5400D78B32 /* View */,
-				5538AE0D29D6041000D78B32 /* OptionsViewController.swift */,
+				5538AE0D29D6041000D78B32 /* SettingsViewController.swift */,
 			);
 			path = OptionsView;
 			sourceTree = "<group>";
@@ -438,7 +438,7 @@
 				5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */,
 				5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */,
 				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
-				5538AE0E29D6041000D78B32 /* OptionsViewController.swift in Sources */,
+				5538AE0E29D6041000D78B32 /* SettingsViewController.swift in Sources */,
 				5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */,
 				5538AE0129D46F5700D78B32 /* NovelCollectionViewCell.swift in Sources */,
 				5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */,
