@@ -41,4 +41,11 @@ final class Coordinator {
         
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func showOptions() {
+        let viewController = OptionsViewController()
+        viewController.title = "Settings"
+        
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }
