@@ -25,6 +25,7 @@
 		5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */; };
 		5538AE0B29D4E95700D78B32 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */; };
 		5538AE0E29D6041000D78B32 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0D29D6041000D78B32 /* OptionsViewController.swift */; };
+		5538AE1129D72B7000D78B32 /* FontFamilySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewController.swift; sourceTree = "<group>"; };
 		5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		5538AE0D29D6041000D78B32 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilySelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,9 +263,18 @@
 		5538AE0C29D603F900D78B32 /* OptionsView */ = {
 			isa = PBXGroup;
 			children = (
+				5538AE0F29D72B5400D78B32 /* View */,
 				5538AE0D29D6041000D78B32 /* OptionsViewController.swift */,
 			);
 			path = OptionsView;
+			sourceTree = "<group>";
+		};
+		5538AE0F29D72B5400D78B32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +431,7 @@
 			files = (
 				5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */,
 				5538ADEF29D3812800D78B32 /* UINavigationController.swift in Sources */,
+				5538AE1129D72B7000D78B32 /* FontFamilySelectionView.swift in Sources */,
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
 				5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */,
