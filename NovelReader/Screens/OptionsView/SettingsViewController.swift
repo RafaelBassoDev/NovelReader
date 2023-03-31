@@ -45,7 +45,7 @@ extension SettingsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch options[indexPath.row] {
         case .fontFamily:
-            let viewController = FontFamilySelectionView()
+            let viewController = FontFamilySelectionViewController()
             navigationController?.pushViewController(viewController, animated: true)
             
         case .fontSize:

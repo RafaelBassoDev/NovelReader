@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FontFamilySelectionView: UITableViewController {
+class FontFamilySelectionViewController: UITableViewController {
     
     var fontOptions: [String]!
     
@@ -26,7 +26,7 @@ class FontFamilySelectionView: UITableViewController {
     }
 }
 
-extension FontFamilySelectionView {
+extension FontFamilySelectionViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
