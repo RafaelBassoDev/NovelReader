@@ -272,9 +272,17 @@
 		5538AE0F29D72B5400D78B32 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */,
+				5538AE1229D7421A00D78B32 /* FontFamilySelection */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5538AE1229D7421A00D78B32 /* FontFamilySelection */ = {
+			isa = PBXGroup;
+			children = (
+				5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */,
+			);
+			path = FontFamilySelection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
