@@ -23,8 +23,6 @@ class ChapterListViewController: UITableViewController, Coordinatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 }
 
@@ -49,7 +47,6 @@ extension ChapterListViewController {
         let cell = UITableViewCell()
         
         cell.selectionStyle = .none
-        cell.accessoryType = .disclosureIndicator
         
         var backgroundConfiguration = UIBackgroundConfiguration.listPlainCell()
         backgroundConfiguration.cornerRadius = 10
