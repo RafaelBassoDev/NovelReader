@@ -5,8 +5,8 @@
 //  Created by Rafael Basso on 31/03/23.
 //
 
-import Foundation
+import UIKit
 
-class FontSizeSelectionViewController {
+class FontSizeSelectionViewController: UIViewController {
     
 }
