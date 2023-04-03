@@ -9,12 +9,27 @@ import UIKit
 
 class SizeSliderView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    */
-
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
+    /// Method used to add subviews and set custom view settings inside.
+    private func setupView() {
+        setupLayout()
+    }
+    
+    /// Method used to setup any layout associated with the current view and its subviews.
+    ///
+    /// An easier and more readable way to activate your constraints is to use:
+    /// ```swift
+    ///     NSLayoutConstraint.activate([
+    ///         // Constraints to activate...
+    ///     ])
+    /// ```
+    private func setupLayout() {}
 }
