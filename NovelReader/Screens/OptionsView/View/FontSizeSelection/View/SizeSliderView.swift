@@ -9,8 +9,32 @@ import UIKit
 
 class SizeSliderView: UIView {
 
+    private let SLIDER_MINIMUM_VALUE: Float = 12
+    private let SLIDER_MAXIMUM_VALUE: Float = 48
+    private let SLIDER_STEP: Float = 2
+    
+    private(set) lazy var slider: UISlider = {
+        var symbolConfiguration = UIImage.SymbolConfiguration(paletteColors: [.white])
+        symbolConfiguration = symbolConfiguration.applying(UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 26)))
+        
+        let minimumImage = UIImage(systemName: "textformat.size.smaller", withConfiguration: symbolConfiguration)
+        let maximumImage = UIImage(systemName: "textformat.size.larger", withConfiguration: symbolConfiguration)
+        
+        let slider = UISlider()
+        slider.isContinuous = true
+        slider.minimumValue = SLIDER_MINIMUM_VALUE
+        slider.maximumValue = SLIDER_MAXIMUM_VALUE
+        slider.minimumValueImage = minimumImage
+        slider.maximumValueImage = maximumImage
+        slider.minimumTrackTintColor = .white
+        slider.maximumTrackTintColor = .gray
+        slider.addTarget(self, action: #selector(sliderValueDidChange(_:)), for: .valueChanged)
+        return slider
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -20,6 +44,14 @@ class SizeSliderView: UIView {
     
     /// Method used to add subviews and set custom view settings inside.
     private func setupView() {
+        layoutMargins = UIEdgeInsets(top: 25, left: 10, bottom: 25, right: 10)
+        
+        addSubview(slider)
+        
+        UIView.animate(withDuration: 0.5) {
+            self.slider.value = 30
+        }
+        
         setupLayout()
     }
     
@@ -31,5 +63,21 @@ class SizeSliderView: UIView {
     ///         // Constraints to activate...
     ///     ])
     /// ```
-    private func setupLayout() {}
+    private func setupLayout() {
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            slider.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            slider.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            slider.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            slider.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+        ])
+    }
+}
+
+@objc
+extension SizeSliderView {
+    private func sliderValueDidChange(_ sender: UISlider!) {
+        let roundedStepValue = round(sender.value / SLIDER_STEP) * SLIDER_STEP
+        sender.value = roundedStepValue
+    }
 }
