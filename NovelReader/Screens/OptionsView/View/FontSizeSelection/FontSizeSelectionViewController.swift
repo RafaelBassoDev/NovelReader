@@ -33,6 +33,7 @@ class FontSizeSelectionViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Font Size"
+        self.view.backgroundColor = .black
         
         view.addSubview(referenceText)
         view.addSubview(sliderView)
