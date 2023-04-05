@@ -15,7 +15,6 @@
 		5538ADD929D35EB700D78B32 /* NovelReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADD829D35EB700D78B32 /* NovelReaderUITests.swift */; };
 		5538ADDB29D35EB700D78B32 /* NovelReaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADDA29D35EB700D78B32 /* NovelReaderUITestsLaunchTests.swift */; };
 		5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADEB29D37ED600D78B32 /* Coordinator.swift */; };
-		5538ADEF29D3812800D78B32 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADEE29D3812800D78B32 /* UINavigationController.swift */; };
 		5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */; };
 		5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF529D4678100D78B32 /* Coordinatable.swift */; };
 		5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF929D46A7800D78B32 /* Novel.swift */; };
@@ -60,7 +59,6 @@
 		5538ADD829D35EB700D78B32 /* NovelReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelReaderUITests.swift; sourceTree = "<group>"; };
 		5538ADDA29D35EB700D78B32 /* NovelReaderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelReaderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5538ADEB29D37ED600D78B32 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		5538ADEE29D3812800D78B32 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewController.swift; sourceTree = "<group>"; };
 		5538ADF529D4678100D78B32 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		5538ADF929D46A7800D78B32 /* Novel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novel.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 		5538ADB629D35EB600D78B32 /* NovelReader */ = {
 			isa = PBXGroup;
 			children = (
-				5538ADED29D380CA00D78B32 /* Extensions */,
 				5538ADEA29D37ECB00D78B32 /* Services */,
 				5538ADE929D361B200D78B32 /* Screens */,
 				5538ADE729D3618E00D78B32 /* Application */,
@@ -186,14 +183,6 @@
 				5538ADF429D4674300D78B32 /* Coordinator */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		5538ADED29D380CA00D78B32 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				5538ADEE29D3812800D78B32 /* UINavigationController.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5538ADF029D4668B00D78B32 /* NovelCollection */ = {
@@ -460,7 +449,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */,
-				5538ADEF29D3812800D78B32 /* UINavigationController.swift in Sources */,
 				5538AE1129D72B7000D78B32 /* FontFamilySelectionViewController.swift in Sources */,
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */,
