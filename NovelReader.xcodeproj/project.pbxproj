@@ -25,7 +25,9 @@
 		5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */; };
 		5538AE0B29D4E95700D78B32 /* ReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */; };
 		5538AE0E29D6041000D78B32 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0D29D6041000D78B32 /* SettingsViewController.swift */; };
-		5538AE1129D72B7000D78B32 /* FontFamilySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */; };
+		5538AE1129D72B7000D78B32 /* FontFamilySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1029D72B7000D78B32 /* FontFamilySelectionViewController.swift */; };
+		5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1429D7427B00D78B32 /* FontSizeSelectionViewController.swift */; };
+		5538AE1829DB5BF100D78B32 /* SizeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1729DB5BF100D78B32 /* SizeSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +70,9 @@
 		5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewController.swift; sourceTree = "<group>"; };
 		5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewController.swift; sourceTree = "<group>"; };
 		5538AE0D29D6041000D78B32 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilySelectionView.swift; sourceTree = "<group>"; };
+		5538AE1029D72B7000D78B32 /* FontFamilySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilySelectionViewController.swift; sourceTree = "<group>"; };
+		5538AE1429D7427B00D78B32 /* FontSizeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeSelectionViewController.swift; sourceTree = "<group>"; };
+		5538AE1729DB5BF100D78B32 /* SizeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,7 +276,33 @@
 		5538AE0F29D72B5400D78B32 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5538AE1029D72B7000D78B32 /* FontFamilySelectionView.swift */,
+				5538AE1329D7425E00D78B32 /* FontSizeSelection */,
+				5538AE1229D7421A00D78B32 /* FontFamilySelection */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5538AE1229D7421A00D78B32 /* FontFamilySelection */ = {
+			isa = PBXGroup;
+			children = (
+				5538AE1029D72B7000D78B32 /* FontFamilySelectionViewController.swift */,
+			);
+			path = FontFamilySelection;
+			sourceTree = "<group>";
+		};
+		5538AE1329D7425E00D78B32 /* FontSizeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				5538AE1629DB5BBE00D78B32 /* View */,
+				5538AE1429D7427B00D78B32 /* FontSizeSelectionViewController.swift */,
+			);
+			path = FontSizeSelection;
+			sourceTree = "<group>";
+		};
+		5538AE1629DB5BBE00D78B32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5538AE1729DB5BF100D78B32 /* SizeSliderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,11 +461,13 @@
 			files = (
 				5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */,
 				5538ADEF29D3812800D78B32 /* UINavigationController.swift in Sources */,
-				5538AE1129D72B7000D78B32 /* FontFamilySelectionView.swift in Sources */,
+				5538AE1129D72B7000D78B32 /* FontFamilySelectionViewController.swift in Sources */,
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
+				5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
 				5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */,
 				5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */,
+				5538AE1829DB5BF100D78B32 /* SizeSliderView.swift in Sources */,
 				5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */,
 				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
 				5538AE0E29D6041000D78B32 /* SettingsViewController.swift in Sources */,
