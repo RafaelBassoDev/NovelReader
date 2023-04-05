@@ -17,8 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navigationController = UINavigationController()
         
-        navigationController.setCustomAppearance()
-        
         coordinator = Coordinator(navigationController: navigationController)
         coordinator?.start()
         
