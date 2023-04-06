@@ -30,6 +30,7 @@
 		5538AE1A29DF22FD00D78B32 /* NovelCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1929DF22FD00D78B32 /* NovelCollectionViewModel.swift */; };
 		5538AE1C29DF2A0A00D78B32 /* ChapterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1B29DF2A0A00D78B32 /* ChapterListViewModel.swift */; };
 		5538AE1F29DF470800D78B32 /* NovelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1E29DF470800D78B32 /* NovelRepository.swift */; };
+		5538AE2129DF47A300D78B32 /* NovelRepositoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		5538AE1929DF22FD00D78B32 /* NovelCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewModel.swift; sourceTree = "<group>"; };
 		5538AE1B29DF2A0A00D78B32 /* ChapterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewModel.swift; sourceTree = "<group>"; };
 		5538AE1E29DF470800D78B32 /* NovelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelRepository.swift; sourceTree = "<group>"; };
+		5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelRepositoreable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				5538AE1E29DF470800D78B32 /* NovelRepository.swift */,
+				5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */,
 				5538AE1829DB5BF100D78B32 /* SizeSliderView.swift in Sources */,
 				5538AE1F29DF470800D78B32 /* NovelRepository.swift in Sources */,
+				5538AE2129DF47A300D78B32 /* NovelRepositoreable.swift in Sources */,
 				5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */,
 				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
 				5538AE0E29D6041000D78B32 /* SettingsViewController.swift in Sources */,
