@@ -24,6 +24,13 @@ class ChapterListViewController: UITableViewController, Coordinatable {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    private let customCellBackgroundConfiguration: UIBackgroundConfiguration = {
+        var backgroundConfiguration = UIBackgroundConfiguration.listPlainCell()
+        backgroundConfiguration.cornerRadius = 10
+        backgroundConfiguration.backgroundInsets = NSDirectionalEdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4)
+        return backgroundConfiguration
+    }()
 }
 
 extension ChapterListViewController {
@@ -50,10 +57,7 @@ extension ChapterListViewController {
         
         cell.selectionStyle = .none
         
-        var backgroundConfiguration = UIBackgroundConfiguration.listPlainCell()
-        backgroundConfiguration.cornerRadius = 10
-        backgroundConfiguration.backgroundInsets = NSDirectionalEdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4)
-        cell.backgroundConfiguration = backgroundConfiguration
+        cell.backgroundConfiguration = self.customCellBackgroundConfiguration
         
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = chapter.title
