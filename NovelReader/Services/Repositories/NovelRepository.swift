@@ -14,6 +14,7 @@ class NovelRepository: NovelRepositoreable {
     
     var currentChapterIndex: Int? {
         guard let novelChapters = currentNovel?.chapters, let currentChapter else { return nil }
+        
         if novelChapters.isEmpty {
             return nil
         }
@@ -30,11 +31,15 @@ extension NovelRepository {
         self.currentNovel = novel
     }
     
+    func setCurrentChapter(_ chapter: Chapter) {
+        self.currentChapter = chapter
+    }
+    
     func getNextChapter() -> Chapter? {
-        let chapter = searchNextChapter()
-        if chapter != nil {
-            self.currentChapter = chapter
+        guard let chapter = searchNextChapter() else {
+            return nil
         }
+        setCurrentChapter(chapter)
         return chapter
     }
     
