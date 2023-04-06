@@ -7,7 +7,18 @@
 
 import Foundation
 
-struct Chapter {
+struct Chapter: Identifiable, Equatable {
+    var id: UUID
     let title: String
     let content: String
+
+    init(title: String, content: String) {
+        self.id = UUID()
+        self.title = title
+        self.content = content
+    }
+
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
