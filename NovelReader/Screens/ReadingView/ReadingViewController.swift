@@ -29,12 +29,7 @@ class ReadingViewController: UIViewController, Coordinatable {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textColor = UIColor(
-            red: 135 / 255,
-            green: 206 / 255,
-            blue: 235 / 255,
-            alpha: 1
-        )
+        label.textColor = .systemCyan
         label.sizeToFit()
         return label
     }()
@@ -54,6 +49,17 @@ class ReadingViewController: UIViewController, Coordinatable {
         config.cornerStyle = .medium
         config.title = "Next"
         config.baseBackgroundColor = .systemBlue
+        
+        let button = UIButton(configuration: config)
+        return button
+    }()
+    
+    lazy var chapterListButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.buttonSize = .medium
+        config.cornerStyle = .medium
+        config.title = "Chapters"
+        config.baseBackgroundColor = .systemBrown
         
         let button = UIButton(configuration: config)
         return button
@@ -86,8 +92,13 @@ class ReadingViewController: UIViewController, Coordinatable {
         
         nextChapterButton.addAction(
             UIAction { [weak self] _ in
-                guard let self else { return }
-                self.coordinator?.showNextChapter()
+                self?.coordinator?.showNextChapter()
+            }, for: .touchUpInside
+        )
+        
+        chapterListButton.addAction(
+            UIAction { [weak self] _ in
+                self?.coordinator?.popToChapterList()
             }, for: .touchUpInside
         )
         
@@ -103,6 +114,7 @@ class ReadingViewController: UIViewController, Coordinatable {
         contentView.addSubview(titleLabel)
         contentView.addSubview(contentText)
         contentView.addSubview(nextChapterButton)
+        contentView.addSubview(chapterListButton)
         
         setConstraints()
     }
@@ -153,10 +165,18 @@ extension ReadingViewController {
         nextChapterButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nextChapterButton.topAnchor.constraint(equalTo: contentText.bottomAnchor, constant: 60),
-            nextChapterButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             nextChapterButton.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor, constant: -40),
+            nextChapterButton.leadingAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 20),
             nextChapterButton.widthAnchor.constraint(equalToConstant: 120),
             nextChapterButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        chapterListButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            chapterListButton.centerYAnchor.constraint(equalTo: nextChapterButton.centerYAnchor),
+            chapterListButton.trailingAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -20),
+            chapterListButton.widthAnchor.constraint(equalToConstant: 120),
+            chapterListButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
