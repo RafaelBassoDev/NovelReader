@@ -8,18 +8,19 @@
 import Foundation
 
 class NovelCollectionViewModel {
+    let novels: [Novel]
     
-    let novelList: [Novel]
-    let novelCount: Int
+    var novelCount: Int {
+        novels.count
+    }
     
-    init(novelList: [Novel] = []) {
-        self.novelList = novelList
-        self.novelCount = novelList.count
+    init(novels: [Novel]) {
+        self.novels = novels
     }
     
     func getNovel(at indexPath: IndexPath) -> Novel {
         let index = indexPath.row
-        return novelList[index]
+        return novels[index]
     }
     
 }
