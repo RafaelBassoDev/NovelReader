@@ -27,6 +27,7 @@
 		5538AE1129D72B7000D78B32 /* FontFamilySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1029D72B7000D78B32 /* FontFamilySelectionViewController.swift */; };
 		5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1429D7427B00D78B32 /* FontSizeSelectionViewController.swift */; };
 		5538AE1829DB5BF100D78B32 /* SizeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1729DB5BF100D78B32 /* SizeSliderView.swift */; };
+		5538AE1A29DF22FD00D78B32 /* NovelCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1929DF22FD00D78B32 /* NovelCollectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		5538AE1029D72B7000D78B32 /* FontFamilySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilySelectionViewController.swift; sourceTree = "<group>"; };
 		5538AE1429D7427B00D78B32 /* FontSizeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeSelectionViewController.swift; sourceTree = "<group>"; };
 		5538AE1729DB5BF100D78B32 /* SizeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSliderView.swift; sourceTree = "<group>"; };
+		5538AE1929DF22FD00D78B32 /* NovelCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				5538ADFF29D46F2D00D78B32 /* View */,
 				5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */,
+				5538AE1929DF22FD00D78B32 /* NovelCollectionViewModel.swift */,
 			);
 			path = NovelCollection;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
+				5538AE1A29DF22FD00D78B32 /* NovelCollectionViewModel.swift in Sources */,
 				5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */,
 				5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */,
 				5538AE1829DB5BF100D78B32 /* SizeSliderView.swift in Sources */,
