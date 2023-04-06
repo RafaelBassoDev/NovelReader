@@ -9,15 +9,15 @@ import UIKit
 
 class ChapterListViewController: UITableViewController, Coordinatable {
     weak var coordinator: Coordinator?
-    let chapters: [Chapter]!
     
-    init(chapters: [Chapter]) {
-        self.chapters = chapters
+    private var viewModel: ChapterListViewModel!
+    
+    init(viewModel: ChapterListViewModel) {
+        self.viewModel = viewModel
         super.init(style: .plain)
     }
     
     required init?(coder: NSCoder) {
-        self.chapters = nil
         super.init(coder: coder)
     }
     
