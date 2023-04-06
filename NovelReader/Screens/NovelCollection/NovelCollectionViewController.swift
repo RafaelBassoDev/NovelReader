@@ -44,18 +44,15 @@ extension NovelCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
+        return viewModel.novelCount
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NovelCollectionViewCell.reuseIdentifier, for: indexPath) as? NovelCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        let novel = dataSource[indexPath.row]
-        
+        let novel = viewModel.getNovel(at: indexPath)
         cell.configure(with: novel)
-        
         return cell
     }
 }
@@ -64,7 +61,7 @@ extension NovelCollectionViewController {
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let novel = dataSource[indexPath.row]
+        let novel = viewModel.getNovel(at: indexPath)
         coordinator?.showChapterList(for: novel)
     }
 }
