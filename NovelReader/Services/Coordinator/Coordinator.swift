@@ -18,7 +18,7 @@ final class Coordinator {
     }
     
     func start() {
-        let viewModel = NovelCollectionViewModel(novels: novelRepository.dataSource)
+        let viewModel = NovelCollectionViewModel(novels: novelRepository.novels)
         let viewController = NovelCollectionViewController(viewModel: viewModel)
         viewController.coordinator = self
         viewController.title = "Novels"
@@ -39,6 +39,8 @@ extension Coordinator {
         viewController.coordinator = self
         viewController.title = "Chapters"
         
+        self.novelRepository.setCurrentNovel(novel)
+        
         navigationController.pushViewController(viewController, animated: true)
     }
     
@@ -57,7 +59,11 @@ extension Coordinator {
     }
     
     func showNextChapter() {
-        let viewController = ReadingViewController(chapter: novelRepository.dataSource[0].chapters[0])
+        guard let nextChapter = novelRepository.getNextChapter() else {
+            return
+            // show error - end of chapters, return to chapter list?
+        }
+        let viewController = ReadingViewController(chapter: nextChapter)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
