@@ -56,12 +56,6 @@ class ReadingViewController: UIViewController, Coordinatable {
         config.baseBackgroundColor = .systemBlue
         
         let button = UIButton(configuration: config)
-        button.addAction(
-            UIAction { _ in
-                print("Next")
-            },
-            for: .touchUpInside
-        )
         return button
     }()
     
@@ -88,6 +82,13 @@ class ReadingViewController: UIViewController, Coordinatable {
             style: .plain,
             target: self,
             action: #selector(settingButtonPressed)
+        )
+        
+        nextChapterButton.addAction(
+            UIAction { [weak self] _ in
+                guard let self else { return }
+                self.coordinator?.showNextChapter()
+            }, for: .touchUpInside
         )
         
         titleLabel.text = chapter.title
