@@ -10,28 +10,11 @@ import UIKit
 class NovelCollectionViewController: UICollectionViewController, Coordinatable {
     weak var coordinator: Coordinator?
     
-    let dataSource = [
-        Novel(
-            title: "A Will Eternal",
-            chapters: [
-                Chapter(title: "Chapter 01", content: "some text")
-            ]
-        ),
-        Novel(
-            title: "Immortal renegade",
-            chapters: [
-                Chapter(title: "Chapter 01", content: "some text")
-            ]
-        ),
-        Novel(
-            title: "I Shal Seal The Heavens",
-            chapters: [
-                Chapter(title: "Chapter 01", content: "some text")
-            ]
-        )
-    ]
+    private var viewModel: NovelCollectionViewModel!
     
-    init() {
+    init(viewModel: NovelCollectionViewModel) {
+        self.viewModel = viewModel
+        
         let layout = UICollectionViewFlowLayout()
         let width = 180
         let height = 300
