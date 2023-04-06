@@ -69,14 +69,18 @@ extension Coordinator {
                 title: "That's all folks!",
                 message: "It seems that there are no more chapters to read! Return to chapter list?",
                 defaultAction: {
-                    let presentedViewControllers = self.navigationController.viewControllers
-                    for controller in presentedViewControllers where controller.title == "Chapters" {
-                        self.navigationController.popToViewController(controller, animated: true)
-                        break
-                    }
+                    self.popToChapterList()
                 }
             )
             // swiftlint:enable trailing_closure
+        }
+    }
+    
+    func popToChapterList() {
+        let presentedViewControllers = self.navigationController.viewControllers
+        for controller in presentedViewControllers where controller.title == "Chapters" {
+            self.navigationController.popToViewController(controller, animated: true)
+            break
         }
     }
 }
