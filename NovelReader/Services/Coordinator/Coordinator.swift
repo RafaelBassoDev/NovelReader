@@ -15,7 +15,8 @@ final class Coordinator {
     }
     
     func start() {
-        let viewController = NovelCollectionViewController()
+        let viewModel = NovelCollectionViewModel()
+        let viewController = NovelCollectionViewController(viewModel: viewModel)
         viewController.coordinator = self
         viewController.title = "Novels"
         viewController.modalPresentationStyle = .fullScreen
