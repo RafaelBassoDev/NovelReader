@@ -32,7 +32,7 @@ extension ChapterListViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chapters.count
+        return viewModel.chapterCount
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -40,11 +40,13 @@ extension ChapterListViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showReadingView(for: chapters[indexPath.row])
+        let chapter = viewModel.getChapter(at: indexPath)
+        coordinator?.showReadingView(for: chapter)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        let chapter = viewModel.getChapter(at: indexPath)
         
         cell.selectionStyle = .none
         
@@ -54,7 +56,7 @@ extension ChapterListViewController {
         cell.backgroundConfiguration = backgroundConfiguration
         
         var contentConfiguration = cell.defaultContentConfiguration()
-        contentConfiguration.text = chapters[indexPath.row].title
+        contentConfiguration.text = chapter.title
         contentConfiguration.textProperties.font = UIFont.boldSystemFont(ofSize: 20)
         contentConfiguration.textProperties.lineBreakMode = .byTruncatingTail
         contentConfiguration.textProperties.numberOfLines = 2
