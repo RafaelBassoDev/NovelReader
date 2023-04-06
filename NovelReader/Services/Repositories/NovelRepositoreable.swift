@@ -8,5 +8,11 @@
 import Foundation
 
 protocol NovelRepositoreable {
+    var novels: [Novel] { get }
+    var currentNovel: Novel? { get }
+    var currentChapter: Chapter? { get }
+    var currentChapterIndex: Int? { get }
     
+    func setCurrentNovel(_ novel: Novel)
+    func getNextChapter() -> Chapter?
 }
