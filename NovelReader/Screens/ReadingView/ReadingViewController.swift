@@ -91,6 +91,8 @@ class ReadingViewController: UIViewController, Coordinatable {
             }, for: .touchUpInside
         )
         
+        view.backgroundColor = .black
+        
         titleLabel.text = chapter.title
         contentText.text = chapter.content
         
