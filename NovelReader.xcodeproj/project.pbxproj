@@ -28,6 +28,7 @@
 		5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1429D7427B00D78B32 /* FontSizeSelectionViewController.swift */; };
 		5538AE1829DB5BF100D78B32 /* SizeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1729DB5BF100D78B32 /* SizeSliderView.swift */; };
 		5538AE1A29DF22FD00D78B32 /* NovelCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1929DF22FD00D78B32 /* NovelCollectionViewModel.swift */; };
+		5538AE1C29DF2A0A00D78B32 /* ChapterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1B29DF2A0A00D78B32 /* ChapterListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		5538AE1429D7427B00D78B32 /* FontSizeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeSelectionViewController.swift; sourceTree = "<group>"; };
 		5538AE1729DB5BF100D78B32 /* SizeSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSliderView.swift; sourceTree = "<group>"; };
 		5538AE1929DF22FD00D78B32 /* NovelCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewModel.swift; sourceTree = "<group>"; };
+		5538AE1B29DF2A0A00D78B32 /* ChapterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */,
+				5538AE1B29DF2A0A00D78B32 /* ChapterListViewModel.swift */,
 			);
 			path = ChapterList;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */,
+				5538AE1C29DF2A0A00D78B32 /* ChapterListViewModel.swift in Sources */,
 				5538AE1129D72B7000D78B32 /* FontFamilySelectionViewController.swift in Sources */,
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */,
