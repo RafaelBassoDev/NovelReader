@@ -29,7 +29,8 @@ final class Coordinator {
     }
     
     func showChapterList(for novel: Novel) {
-        let viewController = ChapterListViewController(chapters: novel.chapters)
+        let viewModel = ChapterListViewModel(chapters: novel.chapters)
+        let viewController = ChapterListViewController(viewModel: viewModel)
         viewController.coordinator = self
         viewController.title = "Chapters"
         
