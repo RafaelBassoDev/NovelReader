@@ -60,11 +60,11 @@ extension Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    // swiftlint:disable trailing_closure
     func showNextChapter() {
         if let nextChapter = novelRepository.getNextChapter() {
             showReadingView(for: nextChapter)
         } else {
+            // swiftlint:disable trailing_closure
             showAlert(
                 title: "That's all folks!",
                 message: "It seems that there are no more chapters to read! Return to chapter list?",
@@ -76,9 +76,9 @@ extension Coordinator {
                     }
                 }
             )
+            // swiftlint:enable trailing_closure
         }
     }
-    // swiftlint:enable trailing_closure
 }
 
 extension Coordinator {
