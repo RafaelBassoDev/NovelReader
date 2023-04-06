@@ -48,6 +48,8 @@ extension Coordinator {
         let viewController = ReadingViewController(chapter: chapter)
         viewController.coordinator = self
         
+        self.novelRepository.setCurrentChapter(chapter)
+        
         navigationController.pushViewController(viewController, animated: true)
     }
     
@@ -58,12 +60,47 @@ extension Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
+    // swiftlint:disable trailing_closure
     func showNextChapter() {
-        guard let nextChapter = novelRepository.getNextChapter() else {
-            return
-            // show error - end of chapters, return to chapter list?
+        if let nextChapter = novelRepository.getNextChapter() {
+            showReadingView(for: nextChapter)
+        } else {
+            showAlert(
+                title: "That's all folks!",
+                message: "It seems that there are no more chapters to read! Return to chapter list?",
+                defaultAction: {
+                    let presentedViewControllers = self.navigationController.viewControllers
+                    for controller in presentedViewControllers where controller.title == "Chapters" {
+                        self.navigationController.popToViewController(controller, animated: true)
+                        break
+                    }
+                }
+            )
         }
-        let viewController = ReadingViewController(chapter: nextChapter)
-        navigationController.pushViewController(viewController, animated: true)
+    }
+    // swiftlint:enable trailing_closure
+}
+
+extension Coordinator {
+    func showAlert(
+        title: String,
+        message: String,
+        defaultAction defaultCompletionHandler: (() -> Void)? = nil,
+        cancelAction cancelCompletionHandler: (() -> Void)? = nil
+    ) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            defaultCompletionHandler?()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            cancelCompletionHandler?()
+        }
+        
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        navigationController.present(alertController, animated: true)
     }
 }
