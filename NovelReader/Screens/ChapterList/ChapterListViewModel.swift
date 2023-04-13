@@ -7,15 +7,17 @@
 
 import Foundation
 
-class ChapterListViewModel {
+struct ChapterListViewModel {
     let chapters: [Chapter]
-    
-    var chapterCount: Int {
-        chapters.count
-    }
     
     init(chapters: [Chapter]) {
         self.chapters = chapters
+    }
+}
+
+extension ChapterListViewModel {
+    var chapterCount: Int {
+        chapters.count
     }
     
     func getChapter(at indexPath: IndexPath) -> Chapter {
