@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsRepository {
+class SettingsRepository: SettingsRepositoreable {
     // saveSettings
     // updateSettings
     
