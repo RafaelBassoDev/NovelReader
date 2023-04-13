@@ -45,7 +45,8 @@ extension Coordinator {
     }
     
     func showReadingView(for chapter: Chapter) {
-        let viewController = ReadingViewController(chapter: chapter)
+        let viewModel = ReadingViewModel(chapter: chapter)
+        let viewController = ReadingViewController(viewModel: viewModel)
         viewController.coordinator = self
         
         self.novelRepository.setCurrentChapter(chapter)
