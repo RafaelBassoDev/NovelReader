@@ -10,8 +10,8 @@ import UIKit
 final class Coordinator {
     var navigationController: UINavigationController
     
-    var novelRepository: NovelRepositoreable
-    var settingsRepository: SettingsRepository
+    let novelRepository: NovelRepositoreable
+    let settingsRepository: SettingsRepository
     
     init(navigationController: UINavigationController, novelRepository: NovelRepositoreable, setttingsRepository: SettingsRepository) {
         self.navigationController = navigationController
@@ -48,7 +48,7 @@ extension Coordinator {
     
     func showReadingView(for chapter: Chapter) {
         let viewModel = ReadingViewModel(chapter: chapter)
-        let viewController = ReadingViewController(viewModel: viewModel)
+        let viewController = ReadingViewController(viewModel: viewModel, settingsRepository: settingsRepository)
         viewController.coordinator = self
         
         self.novelRepository.setCurrentChapter(chapter)
@@ -57,7 +57,7 @@ extension Coordinator {
     }
     
     func showSettings() {
-        let viewController = SettingsViewController()
+        let viewController = SettingsViewController(repository: settingsRepository)
         viewController.title = "Settings"
         
         navigationController.pushViewController(viewController, animated: true)
