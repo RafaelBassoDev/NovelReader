@@ -44,7 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         coordinator = Coordinator(
             navigationController: navigationController,
             novelRepository: novelRepository,
-            setttingsRepository: settingsRepository
+            settingsRepository: settingsRepository
         )
         coordinator?.start()
         
