@@ -23,6 +23,7 @@ class ReadingViewController: UIViewController, Coordinatable {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 42)
+        label.text = viewModel.title
         label.textAlignment = .left
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -34,6 +35,7 @@ class ReadingViewController: UIViewController, Coordinatable {
     lazy var contentText: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 22)
+        textView.text = viewModel.content
         textView.textAlignment = .left
         textView.isEditable = false
         textView.isScrollEnabled = false
@@ -95,6 +97,18 @@ class ReadingViewController: UIViewController, Coordinatable {
         super.init(coder: coder)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = .black
+        
+        setNavigationButtonsActions()
+        
+        addSubviews()
+        
+        setConstraints()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
@@ -104,40 +118,10 @@ class ReadingViewController: UIViewController, Coordinatable {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnSwipe = false
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Settings",
-            style: .plain,
-            target: self,
-            action: #selector(settingButtonPressed)
-        )
-        
-        previousChapterButton.addAction(
-            UIAction { [weak self] _ in
-                self?.coordinator?.showPreviousChapter()
-            }, for: .touchUpInside
-        )
-        
-        nextChapterButton.addAction(
-            UIAction { [weak self] _ in
-                self?.coordinator?.showNextChapter()
-            }, for: .touchUpInside
-        )
-        
-        chapterListButton.addAction(
-            UIAction { [weak self] _ in
-                self?.coordinator?.popToChapterList()
-            }, for: .touchUpInside
-        )
-        
-        view.backgroundColor = .black
-        
-        titleLabel.text = viewModel.title
-        contentText.text = viewModel.content
-        
+}
+
+extension ReadingViewController {
+    private func addSubviews() {
         view.addSubview(scrollView)
         
         scrollView.addSubview(contentView)
@@ -147,18 +131,19 @@ class ReadingViewController: UIViewController, Coordinatable {
         contentView.addSubview(previousChapterButton)
         contentView.addSubview(nextChapterButton)
         contentView.addSubview(chapterListButton)
-        
-        setConstraints()
     }
     
-    @objc
-    func settingButtonPressed() {
-        coordinator?.showSettings()
-    }
-}
-
-extension ReadingViewController {
     private func setConstraints() {
+        setScrollViewConstraints()
+        
+        setContentViewConstraints()
+        
+        setTextConstraints()
+        
+        setNavigationButtonsConstraints()
+    }
+    
+    private func setScrollViewConstraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -166,7 +151,9 @@ extension ReadingViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-        
+    }
+    
+    private func setContentViewConstraints() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
@@ -175,7 +162,9 @@ extension ReadingViewController {
             contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
-        
+    }
+    
+    private func setTextConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
@@ -189,7 +178,9 @@ extension ReadingViewController {
             contentText.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
             contentText.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
         ])
-        
+    }
+    
+    private func setNavigationButtonsConstraints() {
         chapterListButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             chapterListButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -214,5 +205,39 @@ extension ReadingViewController {
             nextChapterButton.widthAnchor.constraint(equalToConstant: 70),
             nextChapterButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    private func setNavigationButtonsActions() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Settings",
+            style: .plain,
+            target: self,
+            action: #selector(settingButtonPressed)
+        )
+        
+        previousChapterButton.addAction(
+            UIAction { [weak self] _ in
+                self?.coordinator?.showPreviousChapter()
+            }, for: .touchUpInside
+        )
+        
+        nextChapterButton.addAction(
+            UIAction { [weak self] _ in
+                self?.coordinator?.showNextChapter()
+            }, for: .touchUpInside
+        )
+        
+        chapterListButton.addAction(
+            UIAction { [weak self] _ in
+                self?.coordinator?.popToChapterList()
+            }, for: .touchUpInside
+        )
+    }
+}
+
+extension ReadingViewController {
+    @objc
+    func settingButtonPressed() {
+        coordinator?.showSettings()
     }
 }
