@@ -8,9 +8,6 @@
 import UIKit
 
 class ReadingViewController: UIViewController, Coordinatable {
-    weak var coordinator: Coordinator?
-
-    private var viewModel: ReadingViewModel!
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -82,9 +79,20 @@ class ReadingViewController: UIViewController, Coordinatable {
         return UIButton(configuration: config)
     }()
     
-    init(viewModel: ReadingViewModel) {
+    weak var coordinator: Coordinator?
+
+    private var viewModel: ReadingViewModel!
+    
+    private weak var settingsRepository: SettingsRepository?
+    
+    init(viewModel: ReadingViewModel, settingsRepository: SettingsRepository) {
         self.viewModel = viewModel
+        self.settingsRepository = settingsRepository
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -146,10 +154,6 @@ class ReadingViewController: UIViewController, Coordinatable {
     @objc
     func settingButtonPressed() {
         coordinator?.showSettings()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }
 
