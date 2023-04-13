@@ -38,9 +38,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navigationController = UINavigationController()
         
-        let repository = NovelRepository(novels: dataSource)
+        let novelRepository = NovelRepository(novels: dataSource)
+        let settingsRepository = SettingsRepository()
         
-        coordinator = Coordinator(navigationController: navigationController, repository: repository)
+        coordinator = Coordinator(
+            navigationController: navigationController,
+            novelRepository: novelRepository,
+            setttingsRepository: settingsRepository
+        )
         coordinator?.start()
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
