@@ -43,26 +43,43 @@ class ReadingViewController: UIViewController, Coordinatable {
         return textView
     }()
     
+    lazy var previousChapterButton: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.buttonSize = .medium
+        config.cornerStyle = .medium
+        config.baseBackgroundColor = .white.withAlphaComponent(0.15)
+        
+        let symbolConfig = UIImage.SymbolConfiguration(weight: .bold)
+        let symbol = UIImage(systemName: "chevron.left", withConfiguration: symbolConfig)
+        config.image = symbol
+        
+        return UIButton(configuration: config)
+    }()
+    
     lazy var nextChapterButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.buttonSize = .medium
         config.cornerStyle = .medium
-        config.title = "Next"
-        config.baseBackgroundColor = .systemBlue
+        config.baseBackgroundColor = .white.withAlphaComponent(0.15)
         
-        let button = UIButton(configuration: config)
-        return button
+        let symbolConfig = UIImage.SymbolConfiguration(weight: .bold)
+        let symbol = UIImage(systemName: "chevron.right", withConfiguration: symbolConfig)
+        config.image = symbol
+        
+        return UIButton(configuration: config)
     }()
     
     lazy var chapterListButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.buttonSize = .medium
         config.cornerStyle = .medium
-        config.title = "Chapters"
-        config.baseBackgroundColor = .systemBrown
+        config.baseBackgroundColor = .systemBrown.withAlphaComponent(0.5)
         
-        let button = UIButton(configuration: config)
-        return button
+        let symbolConfig = UIImage.SymbolConfiguration(weight: .bold)
+        let symbol = UIImage(systemName: "line.3.horizontal", withConfiguration: symbolConfig)
+        config.image = symbol
+        
+        return UIButton(configuration: config)
     }()
     
     init(viewModel: ReadingViewModel) {
@@ -90,6 +107,12 @@ class ReadingViewController: UIViewController, Coordinatable {
             action: #selector(settingButtonPressed)
         )
         
+        previousChapterButton.addAction(
+            UIAction { [weak self] _ in
+                self?.coordinator?.showPreviousChapter()
+            }, for: .touchUpInside
+        )
+        
         nextChapterButton.addAction(
             UIAction { [weak self] _ in
                 self?.coordinator?.showNextChapter()
@@ -113,6 +136,7 @@ class ReadingViewController: UIViewController, Coordinatable {
         
         contentView.addSubview(titleLabel)
         contentView.addSubview(contentText)
+        contentView.addSubview(previousChapterButton)
         contentView.addSubview(nextChapterButton)
         contentView.addSubview(chapterListButton)
         
@@ -162,21 +186,29 @@ extension ReadingViewController {
             contentText.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
         ])
         
-        nextChapterButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nextChapterButton.topAnchor.constraint(equalTo: contentText.bottomAnchor, constant: 60),
-            nextChapterButton.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor, constant: -40),
-            nextChapterButton.leadingAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 20),
-            nextChapterButton.widthAnchor.constraint(equalToConstant: 120),
-            nextChapterButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
         chapterListButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            chapterListButton.centerYAnchor.constraint(equalTo: nextChapterButton.centerYAnchor),
-            chapterListButton.trailingAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -20),
-            chapterListButton.widthAnchor.constraint(equalToConstant: 120),
+            chapterListButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            chapterListButton.topAnchor.constraint(equalTo: contentText.bottomAnchor, constant: 60),
+            chapterListButton.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+            chapterListButton.widthAnchor.constraint(equalToConstant: 70),
             chapterListButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        previousChapterButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            previousChapterButton.centerYAnchor.constraint(equalTo: chapterListButton.centerYAnchor),
+            previousChapterButton.trailingAnchor.constraint(equalTo: chapterListButton.leadingAnchor, constant: -25),
+            previousChapterButton.widthAnchor.constraint(equalToConstant: 70),
+            previousChapterButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+        nextChapterButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nextChapterButton.centerYAnchor.constraint(equalTo: chapterListButton.centerYAnchor),
+            nextChapterButton.leadingAnchor.constraint(equalTo: chapterListButton.trailingAnchor, constant: 25),
+            nextChapterButton.widthAnchor.constraint(equalToConstant: 70),
+            nextChapterButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
