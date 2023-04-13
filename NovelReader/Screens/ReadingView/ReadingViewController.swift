@@ -10,7 +10,7 @@ import UIKit
 class ReadingViewController: UIViewController, Coordinatable {
     weak var coordinator: Coordinator?
 
-    var chapter: Chapter!
+    private var viewModel: ReadingViewModel!
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -65,8 +65,8 @@ class ReadingViewController: UIViewController, Coordinatable {
         return button
     }()
     
-    init(chapter: Chapter) {
-        self.chapter = chapter
+    init(viewModel: ReadingViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -104,8 +104,8 @@ class ReadingViewController: UIViewController, Coordinatable {
         
         view.backgroundColor = .black
         
-        titleLabel.text = chapter.title
-        contentText.text = chapter.content
+        titleLabel.text = viewModel.title
+        contentText.text = viewModel.content
         
         view.addSubview(scrollView)
         
