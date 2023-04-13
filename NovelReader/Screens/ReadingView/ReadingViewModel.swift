@@ -6,3 +6,21 @@
 //
 
 import Foundation
+
+class ReadingViewModel {
+    
+    private let chapter: Chapter
+    
+    var title: String {
+        chapter.title
+    }
+    
+    var content: String {
+        chapter.content
+    }
+    
+    init(chapter: Chapter) {
+        self.chapter = chapter
+    }
+    
+}
