@@ -34,6 +34,7 @@
 		55AA3B1829E8311D00E4EEFB /* ReadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */; };
 		55AA3B1A29E885E500E4EEFB /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */; };
 		55AA3B1C29E89A5600E4EEFB /* SettingsRepositoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1B29E89A5600E4EEFB /* SettingsRepositoreable.swift */; };
+		55AA3B1F29E8A50800E4EEFB /* FontSettingsSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1E29E8A50800E4EEFB /* FontSettingsSelectionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewModel.swift; sourceTree = "<group>"; };
 		55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		55AA3B1B29E89A5600E4EEFB /* SettingsRepositoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepositoreable.swift; sourceTree = "<group>"; };
+		55AA3B1E29E8A50800E4EEFB /* FontSettingsSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSettingsSelectionDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 		5538AE0C29D603F900D78B32 /* OptionsView */ = {
 			isa = PBXGroup;
 			children = (
+				55AA3B1D29E8A4EA00E4EEFB /* Protocol */,
 				5538AE0F29D72B5400D78B32 /* View */,
 				5538AE0D29D6041000D78B32 /* SettingsViewController.swift */,
 			);
@@ -323,6 +326,14 @@
 				55AA3B1B29E89A5600E4EEFB /* SettingsRepositoreable.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		55AA3B1D29E8A4EA00E4EEFB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				55AA3B1E29E8A50800E4EEFB /* FontSettingsSelectionDelegate.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,6 +494,7 @@
 				55AA3B1829E8311D00E4EEFB /* ReadingViewModel.swift in Sources */,
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */,
+				55AA3B1F29E8A50800E4EEFB /* FontSettingsSelectionDelegate.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
 				5538AE1A29DF22FD00D78B32 /* NovelCollectionViewModel.swift in Sources */,
 				5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */,
