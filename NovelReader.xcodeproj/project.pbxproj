@@ -32,6 +32,7 @@
 		5538AE1F29DF470800D78B32 /* NovelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1E29DF470800D78B32 /* NovelRepository.swift */; };
 		5538AE2129DF47A300D78B32 /* NovelRepositoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */; };
 		55AA3B1829E8311D00E4EEFB /* ReadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */; };
+		55AA3B1A29E885E500E4EEFB /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		5538AE1E29DF470800D78B32 /* NovelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelRepository.swift; sourceTree = "<group>"; };
 		5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelRepositoreable.swift; sourceTree = "<group>"; };
 		55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewModel.swift; sourceTree = "<group>"; };
+		55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 			children = (
 				5538AE1E29DF470800D78B32 /* NovelRepository.swift */,
 				5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */,
+				55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				5538AE0129D46F5700D78B32 /* NovelCollectionViewCell.swift in Sources */,
 				5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */,
 				5538AE0B29D4E95700D78B32 /* ReadingViewController.swift in Sources */,
+				55AA3B1A29E885E500E4EEFB /* SettingsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
