@@ -11,12 +11,12 @@ final class Coordinator {
     var navigationController: UINavigationController
     
     let novelRepository: NovelRepositoreable
-    let settingsRepository: SettingsRepository
+    let settingsRepository: SettingsRepositoreable
     
-    init(navigationController: UINavigationController, novelRepository: NovelRepositoreable, setttingsRepository: SettingsRepository) {
+    init(navigationController: UINavigationController, novelRepository: NovelRepositoreable, settingsRepository: SettingsRepositoreable) {
         self.navigationController = navigationController
         self.novelRepository = novelRepository
-        self.settingsRepository = setttingsRepository
+        self.settingsRepository = settingsRepository
     }
     
     func start() {
