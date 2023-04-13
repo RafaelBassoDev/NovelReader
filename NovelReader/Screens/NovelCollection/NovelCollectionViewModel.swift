@@ -7,20 +7,21 @@
 
 import Foundation
 
-class NovelCollectionViewModel {
+struct NovelCollectionViewModel {
     let novels: [Novel]
-    
-    var novelCount: Int {
-        novels.count
-    }
     
     init(novels: [Novel]) {
         self.novels = novels
+    }
+}
+
+extension NovelCollectionViewModel {
+    var novelCount: Int {
+        novels.count
     }
     
     func getNovel(at indexPath: IndexPath) -> Novel {
         let index = indexPath.row
         return novels[index]
     }
-    
 }
