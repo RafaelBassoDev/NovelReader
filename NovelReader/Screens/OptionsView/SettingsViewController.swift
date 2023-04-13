@@ -31,6 +31,10 @@ class SettingsViewController: UITableViewController {
     
 }
 
+extension SettingsViewController: FontSettingsSelectionDelegate {
+    
+}
+
 extension SettingsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
