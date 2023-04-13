@@ -31,6 +31,7 @@
 		5538AE1C29DF2A0A00D78B32 /* ChapterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1B29DF2A0A00D78B32 /* ChapterListViewModel.swift */; };
 		5538AE1F29DF470800D78B32 /* NovelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE1E29DF470800D78B32 /* NovelRepository.swift */; };
 		5538AE2129DF47A300D78B32 /* NovelRepositoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */; };
+		55AA3B1829E8311D00E4EEFB /* ReadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		5538AE1B29DF2A0A00D78B32 /* ChapterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewModel.swift; sourceTree = "<group>"; };
 		5538AE1E29DF470800D78B32 /* NovelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelRepository.swift; sourceTree = "<group>"; };
 		5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelRepositoreable.swift; sourceTree = "<group>"; };
+		55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				5538AE0A29D4E95700D78B32 /* ReadingViewController.swift */,
+				55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */,
 			);
 			path = ReadingView;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				5538ADEC29D37ED600D78B32 /* Coordinator.swift in Sources */,
 				5538AE1C29DF2A0A00D78B32 /* ChapterListViewModel.swift in Sources */,
 				5538AE1129D72B7000D78B32 /* FontFamilySelectionViewController.swift in Sources */,
+				55AA3B1829E8311D00E4EEFB /* ReadingViewModel.swift in Sources */,
 				5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */,
 				5538AE1529D7427B00D78B32 /* FontSizeSelectionViewController.swift in Sources */,
 				5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */,
