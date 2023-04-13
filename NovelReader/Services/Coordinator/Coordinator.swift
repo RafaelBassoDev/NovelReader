@@ -77,6 +77,10 @@ extension Coordinator {
         }
     }
     
+    func showPreviousChapter() {
+        
+    }
+    
     func popToChapterList() {
         let presentedViewControllers = self.navigationController.viewControllers
         for controller in presentedViewControllers where controller.title == "Chapters" {
