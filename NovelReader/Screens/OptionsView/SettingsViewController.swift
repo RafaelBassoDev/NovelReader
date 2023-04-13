@@ -14,10 +14,9 @@ class SettingsViewController: UITableViewController {
         case fontSize = "Font Size"
     }
     
-    private let options: [FontSettings] = [
-        .fontFamily,
-        .fontSize
-    ]
+    private var options: [FontSettings] {
+        FontSettings.allCases
+    }
     
     private weak var repository: SettingsRepositoreable?
     
