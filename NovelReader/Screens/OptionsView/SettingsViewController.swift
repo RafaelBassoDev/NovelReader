@@ -19,7 +19,10 @@ class SettingsViewController: UITableViewController {
         .fontSize
     ]
     
-    init() {
+    private weak var repository: SettingsRepository?
+    
+    init(repository: SettingsRepository) {
+        self.repository = repository
         super.init(style: .plain)
     }
     
@@ -47,9 +50,9 @@ extension SettingsViewController {
         
         switch options[indexPath.row] {
         case .fontFamily:
-            viewController = FontFamilySelectionViewController()
+            viewController = FontFamilySelectionViewController(repository: self.repository)
         case .fontSize:
-            viewController = FontSizeSelectionViewController()
+            viewController = FontSizeSelectionViewController(repository: self.repository)
         }
         
         navigationController?.pushViewController(viewController, animated: true)
