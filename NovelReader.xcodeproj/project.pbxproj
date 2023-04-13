@@ -33,6 +33,7 @@
 		5538AE2129DF47A300D78B32 /* NovelRepositoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */; };
 		55AA3B1829E8311D00E4EEFB /* ReadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */; };
 		55AA3B1A29E885E500E4EEFB /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */; };
+		55AA3B1C29E89A5600E4EEFB /* SettingsRepositoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AA3B1B29E89A5600E4EEFB /* SettingsRepositoreable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelRepositoreable.swift; sourceTree = "<group>"; };
 		55AA3B1729E8311D00E4EEFB /* ReadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingViewModel.swift; sourceTree = "<group>"; };
 		55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
+		55AA3B1B29E89A5600E4EEFB /* SettingsRepositoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepositoreable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 				5538AE1E29DF470800D78B32 /* NovelRepository.swift */,
 				5538AE2029DF47A300D78B32 /* NovelRepositoreable.swift */,
 				55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */,
+				55AA3B1B29E89A5600E4EEFB /* SettingsRepositoreable.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				5538AE1F29DF470800D78B32 /* NovelRepository.swift in Sources */,
 				5538AE2129DF47A300D78B32 /* NovelRepositoreable.swift in Sources */,
 				5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */,
+				55AA3B1C29E89A5600E4EEFB /* SettingsRepositoreable.swift in Sources */,
 				5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */,
 				5538AE0E29D6041000D78B32 /* SettingsViewController.swift in Sources */,
 				5538ADFA29D46A7800D78B32 /* Novel.swift in Sources */,
