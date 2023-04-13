@@ -102,6 +102,8 @@ class ReadingViewController: UIViewController, Coordinatable {
         
         view.backgroundColor = .black
         
+        updateFontSettings()
+        
         setNavigationButtonsActions()
         
         addSubviews()
@@ -112,6 +114,7 @@ class ReadingViewController: UIViewController, Coordinatable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
+        updateFontSettings()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -121,6 +124,11 @@ class ReadingViewController: UIViewController, Coordinatable {
 }
 
 extension ReadingViewController {
+    private func updateFontSettings() {
+        contentText.font = settingsRepository?.getLatestUIFontSettings()
+        contentText.setNeedsDisplay()
+    }
+    
     private func addSubviews() {
         view.addSubview(scrollView)
         
