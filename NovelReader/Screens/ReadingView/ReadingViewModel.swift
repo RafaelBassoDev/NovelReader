@@ -7,10 +7,15 @@
 
 import Foundation
 
-class ReadingViewModel {
-    
+struct ReadingViewModel {
     private let chapter: Chapter
     
+    init(chapter: Chapter) {
+        self.chapter = chapter
+    }
+}
+
+extension ReadingViewModel {
     var title: String {
         chapter.title
     }
@@ -18,9 +23,4 @@ class ReadingViewModel {
     var content: String {
         chapter.content
     }
-    
-    init(chapter: Chapter) {
-        self.chapter = chapter
-    }
-    
 }
