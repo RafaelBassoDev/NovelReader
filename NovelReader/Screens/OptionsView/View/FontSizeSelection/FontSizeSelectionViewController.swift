@@ -29,6 +29,17 @@ class FontSizeSelectionViewController: UIViewController {
         return sliderView
     }()
     
+    private weak var repository: SettingsRepository?
+    
+    init(repository: SettingsRepository?) {
+        self.repository = repository
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
