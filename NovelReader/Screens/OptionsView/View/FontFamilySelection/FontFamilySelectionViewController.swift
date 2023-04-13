@@ -9,11 +9,11 @@ import UIKit
 
 class FontFamilySelectionViewController: UITableViewController {
     
-    private weak var repository: SettingsRepository?
+    private weak var repository: SettingsRepositoreable?
     
     var fontOptions: [String]!
     
-    init(fontOptions: [String] = [], repository: SettingsRepository?) {
+    init(fontOptions: [String] = [], repository: SettingsRepositoreable?) {
         self.fontOptions = [
             "SFPro",
             "Arial",

@@ -85,9 +85,9 @@ class ReadingViewController: UIViewController, Coordinatable {
 
     private var viewModel: ReadingViewModel!
     
-    private weak var settingsRepository: SettingsRepository?
+    private weak var settingsRepository: SettingsRepositoreable?
     
-    init(viewModel: ReadingViewModel, settingsRepository: SettingsRepository) {
+    init(viewModel: ReadingViewModel, settingsRepository: SettingsRepositoreable) {
         self.viewModel = viewModel
         self.settingsRepository = settingsRepository
         super.init(nibName: nil, bundle: nil)

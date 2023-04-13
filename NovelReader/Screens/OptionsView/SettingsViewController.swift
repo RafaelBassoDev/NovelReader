@@ -19,9 +19,9 @@ class SettingsViewController: UITableViewController {
         .fontSize
     ]
     
-    private weak var repository: SettingsRepository?
+    private weak var repository: SettingsRepositoreable?
     
-    init(repository: SettingsRepository) {
+    init(repository: SettingsRepositoreable) {
         self.repository = repository
         super.init(style: .plain)
     }
