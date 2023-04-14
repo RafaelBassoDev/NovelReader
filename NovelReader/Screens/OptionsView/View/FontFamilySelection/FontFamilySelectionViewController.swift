@@ -12,13 +12,8 @@ class FontFamilySelectionViewController: UITableViewController, FontSettingsDele
     
     var fontOptions: [String]!
     
-    init(fontOptions: [String] = []) {
-        self.fontOptions = [
-            "SFPro",
-            "Arial",
-            "Comic Sans",
-            "Times New York"
-        ]
+    init(fontFamilyOptions: [String]) {
+        self.fontOptions = fontFamilyOptions
         super.init(style: .plain)
     }
     
