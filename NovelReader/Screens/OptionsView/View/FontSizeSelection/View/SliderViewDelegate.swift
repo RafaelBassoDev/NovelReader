@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SliderViewDelegate: AnyObject {
-    func sliderValueDidChange(to value: CGFloat)
+    func sliderValueDidChange(to value: Float)
 }
