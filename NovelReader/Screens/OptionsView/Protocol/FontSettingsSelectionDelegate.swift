@@ -8,6 +8,6 @@
 import Foundation
 
 protocol FontSettingsSelectionDelegate: AnyObject {
-    func didSetFontSize(to newSize: CGFloat)
+    func didSetFontSize(to newSize: Float)
     func didSetFontFamily(to fontFamily: String)
 }
