@@ -7,7 +7,9 @@
 
 import UIKit
 
-class FontFamilySelectionViewController: UITableViewController {
+class FontFamilySelectionViewController: UITableViewController, FontSettingsDelegatable {
+    weak var settingsDelegate: FontSettingsSelectionDelegate?
+    
     var fontOptions: [String]!
     
     init(fontOptions: [String] = []) {

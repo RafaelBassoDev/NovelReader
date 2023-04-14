@@ -7,8 +7,7 @@
 
 import UIKit
 
-class FontSizeSelectionViewController: UIViewController {
-    
+class FontSizeSelectionViewController: UIViewController, FontSettingsDelegatable {
     private(set) lazy var referenceText: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22)
@@ -28,6 +27,8 @@ class FontSizeSelectionViewController: UIViewController {
         sliderView.layer.borderColor = UIColor.gray.cgColor
         return sliderView
     }()
+    
+    weak var settingsDelegate: FontSettingsSelectionDelegate?
     
     private weak var repository: SettingsRepositoreable?
     
