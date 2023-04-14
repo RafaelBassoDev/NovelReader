@@ -64,6 +64,6 @@ extension FontSizeSelectionViewController {
 
 extension FontSizeSelectionViewController: SliderViewDelegate {
     func sliderValueDidChange(to value: Float) {
-        
+        settingsDelegate?.didSetFontSize(to: value)
     }
 }
