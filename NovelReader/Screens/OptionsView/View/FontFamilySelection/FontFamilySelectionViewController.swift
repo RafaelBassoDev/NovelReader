@@ -36,7 +36,8 @@ extension FontFamilySelectionViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected font: \(fontOptions[indexPath.row])")
+        let selectedFontFamily = fontOptions[indexPath.row]
+        settingsDelegate?.didSetFontFamily(to: selectedFontFamily)
         navigationController?.popViewController(animated: true)
     }
     
