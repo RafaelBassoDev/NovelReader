@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol SliderViewDelegate: AnyObject {
+    func sliderValueDidChange(to value: CGFloat)
+}
