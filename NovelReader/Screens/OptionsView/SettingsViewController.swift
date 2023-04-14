@@ -9,13 +9,26 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
 
-    private enum FontSettings: String, CaseIterable {
-        case fontFamily = "Font Family"
-        case fontSize = "Font Size"
-    }
-    
-    private var options: [FontSettings] {
-        FontSettings.allCases
+    private enum FontSettings: Int, CaseIterable {
+        case fontFamily
+        case fontSize
+        
+        static var count: Int {
+            Self.allCases.count
+        }
+        
+        static subscript(indexPath: IndexPath) -> FontSettings? {
+            return FontSettings(rawValue: indexPath.row)
+        }
+        
+        func getStringDescription() -> String {
+            switch self {
+            case .fontFamily:
+                return "Font Family"
+            case .fontSize:
+                return "Font Size"
+            }
+        }
     }
     
     private weak var repository: SettingsRepositoreable?
@@ -41,7 +54,7 @@ extension SettingsViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return FontSettings.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,11 +64,19 @@ extension SettingsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController: UIViewController!
         
-        switch options[indexPath.row] {
+        guard let setting = FontSettings[indexPath] else {
+            return
+        }
+        
+        switch setting {
         case .fontFamily:
-            viewController = FontFamilySelectionViewController(repository: self.repository)
+            let controller = FontFamilySelectionViewController()
+            controller.settingsDelegate = self
+            viewController = controller
         case .fontSize:
-            viewController = FontSizeSelectionViewController(repository: self.repository)
+            let controller = FontSizeSelectionViewController(repository: self.repository)
+            controller.settingsDelegate = self
+            viewController = controller
         }
         
         navigationController?.pushViewController(viewController, animated: true)
@@ -71,7 +92,10 @@ extension SettingsViewController {
         cell.backgroundConfiguration = backgroundConfiguration
         
         var contentConfiguration = cell.defaultContentConfiguration()
-        contentConfiguration.text = options[indexPath.row].rawValue
+        
+        let settingTitle = FontSettings[indexPath]?.getStringDescription() ?? ""
+        contentConfiguration.text = settingTitle
+        
         contentConfiguration.textProperties.font = UIFont.boldSystemFont(ofSize: 20)
         contentConfiguration.textProperties.lineBreakMode = .byTruncatingTail
         contentConfiguration.textProperties.numberOfLines = 2
