@@ -53,11 +53,12 @@ extension FontFamilySelectionViewController {
         let backgroundConfiguration = UIBackgroundConfiguration.listPlainCell()
         cell.backgroundConfiguration = backgroundConfiguration
         
-        let selectedFontName = fontOptions[indexPath.row]
+        let currentFontName = fontOptions[indexPath.row]
+        let currentUIFont = UIFont(name: currentFontName, size: 17) ?? UIFont.systemFont(ofSize: 17, weight: .regular)
         
         var contentConfiguration = cell.defaultContentConfiguration()
-        contentConfiguration.text = selectedFontName
-        contentConfiguration.textProperties.font = UIFont(name: selectedFontName, size: 17) ?? UIFont.systemFont(ofSize: 17, weight: .regular)
+        contentConfiguration.text = currentFontName
+        contentConfiguration.textProperties.font = currentUIFont
         cell.contentConfiguration = contentConfiguration
         
         return cell
