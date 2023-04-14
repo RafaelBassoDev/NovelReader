@@ -22,6 +22,7 @@ class FontSizeSelectionViewController: UIViewController, FontSettingsDelegatable
     
     private(set) lazy var sliderView: SizeSliderView = {
         let sliderView = SizeSliderView()
+        sliderView.delegate = self
         sliderView.backgroundColor = .darkGray.withAlphaComponent(0.3)
         sliderView.layer.borderWidth = 0.2
         sliderView.layer.borderColor = UIColor.gray.cgColor
@@ -58,5 +59,11 @@ extension FontSizeSelectionViewController {
             sliderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             sliderView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+}
+
+extension FontSizeSelectionViewController: SliderViewDelegate {
+    func sliderValueDidChange(to value: Float) {
+        
     }
 }
