@@ -32,6 +32,8 @@ class SizeSliderView: UIView {
         return slider
     }()
     
+    weak var delegate: SliderViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -79,5 +81,6 @@ extension SizeSliderView {
     private func sliderValueDidChange(_ sender: UISlider!) {
         let roundedStepValue = round(sender.value / SLIDER_STEP) * SLIDER_STEP
         sender.value = roundedStepValue
+        delegate?.sliderValueDidChange(to: roundedStepValue)
     }
 }
