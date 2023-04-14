@@ -74,7 +74,7 @@ extension SettingsViewController {
             controller.settingsDelegate = self
             viewController = controller
         case .fontSize:
-            let controller = FontSizeSelectionViewController(repository: self.repository)
+            let controller = FontSizeSelectionViewController()
             controller.settingsDelegate = self
             viewController = controller
         }

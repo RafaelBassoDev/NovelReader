@@ -30,17 +30,6 @@ class FontSizeSelectionViewController: UIViewController, FontSettingsDelegatable
     
     weak var settingsDelegate: FontSettingsSelectionDelegate?
     
-    private weak var repository: SettingsRepositoreable?
-    
-    init(repository: SettingsRepositoreable?) {
-        self.repository = repository
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
