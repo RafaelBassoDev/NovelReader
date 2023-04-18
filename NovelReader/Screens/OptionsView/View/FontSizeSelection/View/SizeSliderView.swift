@@ -11,7 +11,6 @@ class SizeSliderView: UIView {
 
     private let SLIDER_MINIMUM_VALUE: Float = 12
     private let SLIDER_MAXIMUM_VALUE: Float = 48
-    private let SLIDER_DEFAULT_VALUE: Float = 30
     private let SLIDER_STEP: Float = 2
     
     private(set) lazy var slider: UISlider = {
@@ -51,10 +50,6 @@ class SizeSliderView: UIView {
         
         addSubview(slider)
         
-        UIView.animate(withDuration: 0.5) {
-            self.slider.value = self.SLIDER_DEFAULT_VALUE
-        }
-        
         setupLayout()
     }
     
@@ -77,8 +72,16 @@ class SizeSliderView: UIView {
     }
 }
 
-@objc
 extension SizeSliderView {
+    func setInitialValue(to value: Float) {
+        UIView.animate(withDuration: 0.5) {
+            self.slider.value = value
+        }
+    }
+}
+
+extension SizeSliderView {
+    @objc
     private func sliderValueDidChange(_ sender: UISlider!) {
         let roundedStepValue = round(sender.value / SLIDER_STEP) * SLIDER_STEP
         sender.value = roundedStepValue
