@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsRepository: SettingsRepositoreable {
+class SettingsRepository {
     private var availableFontFamilies = [
         "SFPro",
         "Arial",
@@ -27,7 +27,7 @@ class SettingsRepository: SettingsRepositoreable {
     }
 }
 
-extension SettingsRepository {
+extension SettingsRepository: SettingsRepositoreable {
     func getAvailableFontFamilyNames() -> [String] {
         return availableFontFamilies
     }
