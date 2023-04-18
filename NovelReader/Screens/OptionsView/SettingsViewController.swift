@@ -75,12 +75,12 @@ extension SettingsViewController {
         
         switch setting {
         case .fontFamily:
-            let fontFamilyNames = repository.getAvailableFontFamilyNames()
-            let controller = FontFamilySelectionViewController(fontFamilyOptions: fontFamilyNames)
+            let fontFamilies = repository.getAvailableFonts()
+            let controller = FontFamilySelectionViewController(fontFamilyOptions: fontFamilies)
             controller.settingsDelegate = self
             viewController = controller
         case .fontSize:
-            let currentFont = repository.getLatestUIFontSettings()
+            let currentFont = repository.getCurrentFont()
             let controller = FontSizeSelectionViewController(font: currentFont)
             controller.settingsDelegate = self
             viewController = controller
