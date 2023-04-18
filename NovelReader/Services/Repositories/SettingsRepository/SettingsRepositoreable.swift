@@ -8,8 +8,8 @@
 import UIKit
 
 protocol SettingsRepositoreable: AnyObject {
-    func getAvailableFontFamilyNames() -> [String]
-    func getLatestUIFontSettings() -> UIFont
+    func getAvailableFonts() -> [UIFont]
+    func getCurrentFont() -> UIFont
     func setFontSize(_ size: Float)
     func setFontFamily(_ fontFamily: String)
 }
