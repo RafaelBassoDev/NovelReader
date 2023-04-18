@@ -5,11 +5,20 @@
 //  Created by Rafael Basso on 18/04/23.
 //
 
-import Foundation
+import UIKit
 
 class SettingsStorage {
     private let DEFAULT_FONT_FAMILY = "SFPro"
     private let DEFAULT_FONT_SIZE: Float = 30.0
+    private let AVAILABLE_FONT_FAMILY_NAMES = [
+        "ArialMT",
+        "Charter-Roman",
+        "Helvetica",
+        "Georgia",
+        "Palatino-Roman",
+        "Verdana",
+        "TimesNewRomanPSMT"
+    ]
     
     private let defaults: UserDefaults
     
@@ -19,6 +28,19 @@ class SettingsStorage {
 }
 
 extension SettingsStorage: SettingsStorable {
+    func getAvailableFontsFamilies() -> [UIFont] {
+        var availableUIFonts = [UIFont]()
+        
+        let fontSize = getFontSize()
+        
+        for name in AVAILABLE_FONT_FAMILY_NAMES {
+            if let font = UIFont(name: name, size: CGFloat(fontSize)) {
+                availableUIFonts.append(font)
+            }
+        }
+        return availableUIFonts
+    }
+    
     func getFontFamily() -> String {
         let userDefaultsKey = "FontFamily"
         
