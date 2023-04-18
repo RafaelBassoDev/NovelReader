@@ -10,9 +10,9 @@ import UIKit
 class FontFamilySelectionViewController: UITableViewController, FontSettingsDelegatable {
     weak var settingsDelegate: FontSettingsSelectionDelegate?
     
-    var fontOptions: [String]!
+    var fontOptions: [UIFont]!
     
-    init(fontFamilyOptions: [String]) {
+    init(fontFamilyOptions: [UIFont]) {
         self.fontOptions = fontFamilyOptions
         super.init(style: .plain)
     }
@@ -36,8 +36,8 @@ extension FontFamilySelectionViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFontFamily = fontOptions[indexPath.row]
-        settingsDelegate?.didSetFontFamily(to: selectedFontFamily)
+        let selectedFont = fontOptions[indexPath.row]
+        settingsDelegate?.didSetFontFamily(to: selectedFont.familyName)
         navigationController?.popViewController(animated: true)
     }
     
@@ -49,12 +49,11 @@ extension FontFamilySelectionViewController {
         let backgroundConfiguration = UIBackgroundConfiguration.listPlainCell()
         cell.backgroundConfiguration = backgroundConfiguration
         
-        let currentFontName = fontOptions[indexPath.row]
-        let currentUIFont = UIFont(name: currentFontName, size: 17) ?? UIFont.systemFont(ofSize: 17, weight: .regular)
+        let currentFont = fontOptions[indexPath.row]
         
         var contentConfiguration = cell.defaultContentConfiguration()
-        contentConfiguration.text = currentFontName
-        contentConfiguration.textProperties.font = currentUIFont
+        contentConfiguration.text = currentFont.familyName
+        contentConfiguration.textProperties.font = currentFont.withSize(24)
         cell.contentConfiguration = contentConfiguration
         
         return cell
