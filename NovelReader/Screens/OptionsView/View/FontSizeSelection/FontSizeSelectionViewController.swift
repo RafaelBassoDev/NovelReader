@@ -30,9 +30,10 @@ class FontSizeSelectionViewController: UIViewController, FontSettingsDelegatable
     
     weak var settingsDelegate: FontSettingsSelectionDelegate?
     
-    init(font: UIFont?) {
+    init(font: UIFont) {
         super.init(nibName: nil, bundle: nil)
-        referenceText.font = font ?? .systemFont(ofSize: 30)
+        referenceText.font = font
+        sliderView.setInitialValue(to: Float(font.pointSize))
     }
     
     required init?(coder: NSCoder) {
