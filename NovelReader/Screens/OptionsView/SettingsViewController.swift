@@ -46,11 +46,11 @@ class SettingsViewController: UITableViewController {
 
 extension SettingsViewController: FontSettingsSelectionDelegate {
     func didSetFontSize(to newSize: Float) {
-        print("set font size to \(newSize)")
+        repository?.setFontSize(newSize)
     }
     
     func didSetFontFamily(to fontFamily: String) {
-        print("set font family to \(fontFamily)")
+        repository?.setFontFamily(fontFamily)
     }
 }
 
@@ -81,7 +81,8 @@ extension SettingsViewController {
             controller.settingsDelegate = self
             viewController = controller
         case .fontSize:
-            let controller = FontSizeSelectionViewController()
+            let currentFont = repository?.getLatestUIFontSettings()
+            let controller = FontSizeSelectionViewController(font: currentFont)
             controller.settingsDelegate = self
             viewController = controller
         }
