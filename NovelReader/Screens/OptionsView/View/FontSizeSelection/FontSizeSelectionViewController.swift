@@ -10,7 +10,6 @@ import UIKit
 class FontSizeSelectionViewController: UIViewController, FontSettingsDelegatable {
     private(set) lazy var referenceText: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 22)
         label.text = "The quick brown fox jumps over the lazy dog."
         label.textColor = .white
         label.textAlignment = .center
@@ -31,6 +30,15 @@ class FontSizeSelectionViewController: UIViewController, FontSettingsDelegatable
     
     weak var settingsDelegate: FontSettingsSelectionDelegate?
     
+    init(font: UIFont?) {
+        super.init(nibName: nil, bundle: nil)
+        referenceText.font = font ?? .systemFont(ofSize: 30)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +49,12 @@ class FontSizeSelectionViewController: UIViewController, FontSettingsDelegatable
         view.addSubview(sliderView)
         
         setupConstraints()
+    }
+}
+
+extension FontSizeSelectionViewController {
+    private func setRefereceTextFontSize(to newSize: Float) {
+        referenceText.font = UIFont.systemFont(ofSize: CGFloat(newSize))
     }
 }
 
@@ -65,5 +79,6 @@ extension FontSizeSelectionViewController {
 extension FontSizeSelectionViewController: SliderViewDelegate {
     func sliderValueDidChange(to value: Float) {
         settingsDelegate?.didSetFontSize(to: value)
+        setRefereceTextFontSize(to: value)
     }
 }
