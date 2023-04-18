@@ -8,12 +8,6 @@
 import UIKit
 
 class SettingsRepository: SettingsRepositoreable {
-    
-    private let DEFAULT_FONT_FAMILY = "SFPro"
-    private let DEFAULT_FONT_SIZE: Float = 30.0
-    
-    private let defaults = UserDefaults.standard
-    
     private var availableFontFamilies = [
         "SFPro",
         "Arial",
@@ -24,9 +18,12 @@ class SettingsRepository: SettingsRepositoreable {
     var currentFontFamily: String!
     var currentFontSize: Float!
     
-    init() {
-        currentFontFamily = getStoredFontFamily()
-        currentFontSize = getStoredFontSize()
+    let settingsStorage: SettingsStorable
+    
+    init(storage: SettingsStorable) {
+        self.settingsStorage = storage
+        currentFontFamily = settingsStorage.getFontFamily()
+        currentFontSize = settingsStorage.getFontSize()
     }
 }
 
@@ -42,48 +39,14 @@ extension SettingsRepository {
     func setFontSize(_ size: Float) {
         if size != currentFontSize {
             currentFontSize = size
-            setStoredFontSize(size)
+            settingsStorage.setFontSize(size)
         }
     }
     
     func setFontFamily(_ fontFamily: String) {
         if fontFamily != currentFontFamily {
             currentFontFamily = fontFamily
-            setStoredFontFamily(fontFamily)
+            settingsStorage.setFontFamily(fontFamily)
         }
-    }
-}
-
-extension SettingsRepository {
-    private func getStoredFontFamily() -> String {
-        let userDefaultsKey = "FontFamily"
-        
-        guard let savedFontFamily = defaults.string(forKey: userDefaultsKey) else {
-            return DEFAULT_FONT_FAMILY
-        }
-        
-        return savedFontFamily
-    }
-    
-    private func getStoredFontSize() -> Float {
-        let userDefaultsKey = "FontSize"
-        
-        guard let savedFontSize = defaults.string(forKey: userDefaultsKey) else {
-            return DEFAULT_FONT_SIZE
-        }
-        
-        guard let formattedNumber = NumberFormatter().number(from: savedFontSize) else {
-            return DEFAULT_FONT_SIZE
-        }
-        
-        return formattedNumber.floatValue
-    }
-    
-    private func setStoredFontFamily(_ fontFamily: String) {
-        defaults.set(fontFamily, forKey: "FontFamily")
-    }
-    
-    private func setStoredFontSize(_ size: Float) {
-        defaults.set(size, forKey: "FontSize")
     }
 }
