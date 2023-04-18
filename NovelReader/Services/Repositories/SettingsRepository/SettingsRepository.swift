@@ -8,13 +8,6 @@
 import UIKit
 
 class SettingsRepository {
-    private var availableFontFamilies = [
-        "SFPro",
-        "Arial",
-        "Comic Sans",
-        "Times New York"
-    ]
-    
     var currentFontFamily: String!
     var currentFontSize: Float!
     
@@ -28,12 +21,16 @@ class SettingsRepository {
 }
 
 extension SettingsRepository: SettingsRepositoreable {
-    func getAvailableFontFamilyNames() -> [String] {
-        return availableFontFamilies
+    func getAvailableFonts() -> [UIFont] {
+        return settingsStorage.getAvailableFontsFamilies()
     }
     
-    func getLatestUIFontSettings() -> UIFont {
-        return UIFont.systemFont(ofSize: CGFloat(currentFontSize), weight: .regular)
+    func getCurrentFont() -> UIFont {
+        guard let currentFont = UIFont(name: currentFontFamily, size: CGFloat(currentFontSize)) else {
+            return UIFont.systemFont(ofSize: CGFloat(currentFontSize), weight: .regular)
+        }
+        
+        return currentFont
     }
     
     func setFontSize(_ size: Float) {
