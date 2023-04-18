@@ -7,6 +7,47 @@
 
 import Foundation
 
-class SettingsStorage: SettingsStorable {
+class SettingsStorage {
+    private let DEFAULT_FONT_FAMILY = "SFPro"
+    private let DEFAULT_FONT_SIZE: Float = 30.0
     
+    private let defaults: UserDefaults
+    
+    init(userDefaults: UserDefaults = UserDefaults.standard) {
+        self.defaults = userDefaults
+    }
+}
+
+extension SettingsStorage: SettingsStorable {
+    func getFontFamily() -> String {
+        let userDefaultsKey = "FontFamily"
+        
+        guard let savedFontFamily = defaults.string(forKey: userDefaultsKey) else {
+            return DEFAULT_FONT_FAMILY
+        }
+        
+        return savedFontFamily
+    }
+    
+    func getFontSize() -> Float {
+        let userDefaultsKey = "FontSize"
+        
+        guard let savedFontSize = defaults.string(forKey: userDefaultsKey) else {
+            return DEFAULT_FONT_SIZE
+        }
+        
+        guard let formattedNumber = NumberFormatter().number(from: savedFontSize) else {
+            return DEFAULT_FONT_SIZE
+        }
+        
+        return formattedNumber.floatValue
+    }
+    
+    func setFontFamily(_ fontFamily: String) {
+        defaults.set(fontFamily, forKey: "FontFamily")
+    }
+    
+    func setFontSize(_ size: Float) {
+        defaults.set(size, forKey: "FontSize")
+    }
 }
