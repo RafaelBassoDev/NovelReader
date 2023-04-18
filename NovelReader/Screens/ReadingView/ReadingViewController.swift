@@ -125,7 +125,7 @@ class ReadingViewController: UIViewController, Coordinatable {
 
 extension ReadingViewController {
     private func updateFontSettings() {
-        contentText.font = settingsRepository?.getLatestUIFontSettings()
+        contentText.font = settingsRepository?.getCurrentFont()
         contentText.setNeedsDisplay()
     }
     
