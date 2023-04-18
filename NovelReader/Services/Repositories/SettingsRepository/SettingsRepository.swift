@@ -40,13 +40,17 @@ extension SettingsRepository {
     }
     
     func setFontSize(_ size: Float) {
-        currentFontSize = size
-        setStoredFontSize(size)
+        if size != currentFontSize {
+            currentFontSize = size
+            setStoredFontSize(size)
+        }
     }
     
     func setFontFamily(_ fontFamily: String) {
-        currentFontFamily = fontFamily
-        setStoredFontFamily(fontFamily)
+        if fontFamily != currentFontFamily {
+            currentFontFamily = fontFamily
+            setStoredFontFamily(fontFamily)
+        }
     }
 }
 
