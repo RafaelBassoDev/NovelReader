@@ -31,7 +31,7 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    private weak var repository: SettingsRepositoreable?
+    private var repository: SettingsRepositoreable!
     
     init(repository: SettingsRepositoreable) {
         self.repository = repository
@@ -41,16 +41,15 @@ class SettingsViewController: UITableViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
 }
 
 extension SettingsViewController: FontSettingsSelectionDelegate {
     func didSetFontSize(to newSize: Float) {
-        repository?.setFontSize(newSize)
+        repository.setFontSize(newSize)
     }
     
     func didSetFontFamily(to fontFamily: String) {
-        repository?.setFontFamily(fontFamily)
+        repository.setFontFamily(fontFamily)
     }
 }
 
@@ -76,12 +75,12 @@ extension SettingsViewController {
         
         switch setting {
         case .fontFamily:
-            let fontFamilyNames = repository?.getAvailableFontFamilyNames() ?? []
+            let fontFamilyNames = repository.getAvailableFontFamilyNames()
             let controller = FontFamilySelectionViewController(fontFamilyOptions: fontFamilyNames)
             controller.settingsDelegate = self
             viewController = controller
         case .fontSize:
-            let currentFont = repository?.getLatestUIFontSettings()
+            let currentFont = repository.getLatestUIFontSettings()
             let controller = FontSizeSelectionViewController(font: currentFont)
             controller.settingsDelegate = self
             viewController = controller
