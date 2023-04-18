@@ -8,5 +8,8 @@
 import Foundation
 
 protocol SettingsStorable: AnyObject {
-    
+    func getFontFamily() -> String
+    func getFontSize() -> Float
+    func setFontFamily(_ fontFamily: String)
+    func setFontSize(_ size: Float)
 }
