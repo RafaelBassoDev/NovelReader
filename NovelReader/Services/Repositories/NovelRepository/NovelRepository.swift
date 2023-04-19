@@ -43,6 +43,14 @@ extension NovelRepository {
         return chapter
     }
     
+    func getPreviousChapter() -> Chapter? {
+        guard let chapter = searchPreviousChapter() else {
+            return nil
+        }
+        setCurrentChapter(chapter)
+        return chapter
+    }
+    
     private func searchNextChapter() -> Chapter? {
         guard let currentNovelChapters = currentNovel?.chapters else { return nil }
         guard let currentChapterIndex else { return nil }
@@ -54,5 +62,9 @@ extension NovelRepository {
         let nextChapterIndex = currentChapterIndex + 1
         
         return currentNovelChapters[nextChapterIndex]
+    }
+    
+    private func searchPreviousChapter() -> Chapter? {
+        return nil
     }
 }
