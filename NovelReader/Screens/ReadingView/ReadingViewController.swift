@@ -114,12 +114,15 @@ class ReadingViewController: UIViewController, Coordinatable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
+        navigationItem.setHidesBackButton(true, animated: true)
         updateFontSettings()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.setHidesBackButton(false, animated: true)
     }
 }
 
