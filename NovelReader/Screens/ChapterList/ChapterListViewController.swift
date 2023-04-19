@@ -61,6 +61,7 @@ extension ChapterListViewController {
         
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = chapter.title
+        contentConfiguration.secondaryText = chapter.subtitle
         contentConfiguration.textProperties.font = UIFont.boldSystemFont(ofSize: 20)
         contentConfiguration.textProperties.lineBreakMode = .byTruncatingTail
         contentConfiguration.textProperties.numberOfLines = 2
