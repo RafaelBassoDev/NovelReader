@@ -69,7 +69,7 @@ extension Coordinator {
         } else {
             // swiftlint:disable trailing_closure
             showAlert(
-                title: "That's all folks!",
+                title: "Last chapter reached!",
                 message: "It seems that there are no more chapters to read! Return to chapter list?",
                 defaultAction: {
                     self.popToChapterList()
@@ -80,7 +80,14 @@ extension Coordinator {
     }
     
     func showPreviousChapter() {
-        
+        if let previousChapter = novelRepository.getPreviousChapter() {
+            showReadingView(for: previousChapter)
+        } else {
+            showAlert(
+                title: "Error",
+                message: "Could not find previous chapter."
+            )
+        }
     }
     
     func popToChapterList() {
