@@ -11,34 +11,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     var coordinator: Coordinator?
-
-    let dataSource = [
-        Novel(
-            title: "A Will Eternal",
-            chapters: [
-                Chapter(title: "Chapter 01", content: "some text")
-            ]
-        ),
-        Novel(
-            title: "Immortal renegade",
-            chapters: [
-                Chapter(title: "Chapter 01", content: "some text")
-            ]
-        ),
-        Novel(
-            title: "I Shal Seal The Heavens",
-            chapters: [
-                Chapter(title: "Chapter 01", content: "some text")
-            ]
-        )
-    ]
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let navigationController = UINavigationController()
         
-        let novelRepository = NovelRepository(novels: dataSource)
+        let novelRepository = NovelRepository()
         let settingsStorage = SettingsStorage()
         let settingsRepository = SettingsRepository(storage: settingsStorage)
         
