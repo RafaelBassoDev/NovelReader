@@ -39,7 +39,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         
         let novelRepository = NovelRepository(novels: dataSource)
-        let settingsRepository = SettingsRepository()
+        let settingsStorage = SettingsStorage()
+        let settingsRepository = SettingsRepository(storage: settingsStorage)
         
         coordinator = Coordinator(
             navigationController: navigationController,
