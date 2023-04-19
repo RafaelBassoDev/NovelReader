@@ -102,6 +102,9 @@ class ReadingViewController: UIViewController, Coordinatable {
         
         view.backgroundColor = .black
         
+        hideNavigationBar(false)
+        hideNavigationBackButton(true)
+        
         updateFontSettings()
         
         setNavigationButtonsActions()
@@ -114,15 +117,12 @@ class ReadingViewController: UIViewController, Coordinatable {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnSwipe = true
-        navigationItem.setHidesBackButton(true, animated: true)
         updateFontSettings()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnSwipe = false
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationItem.setHidesBackButton(false, animated: true)
     }
 }
 
@@ -228,18 +228,24 @@ extension ReadingViewController {
         
         previousChapterButton.addAction(
             UIAction { [weak self] _ in
+                self?.hideNavigationBar(false)
+                self?.hideNavigationBackButton(true)
                 self?.coordinator?.showPreviousChapter()
             }, for: .touchUpInside
         )
         
         nextChapterButton.addAction(
             UIAction { [weak self] _ in
+                self?.hideNavigationBar(false)
+                self?.hideNavigationBackButton(true)
                 self?.coordinator?.showNextChapter()
             }, for: .touchUpInside
         )
         
         chapterListButton.addAction(
             UIAction { [weak self] _ in
+                self?.hideNavigationBar(false)
+                self?.hideNavigationBackButton(false)
                 self?.coordinator?.popToChapterList()
             }, for: .touchUpInside
         )
@@ -250,5 +256,15 @@ extension ReadingViewController {
     @objc
     func settingButtonPressed() {
         coordinator?.showSettings()
+    }
+}
+
+extension ReadingViewController {
+    private func hideNavigationBackButton(_ state: Bool, animated: Bool = true) {
+        navigationItem.setHidesBackButton(state, animated: animated)
+    }
+    
+    private func hideNavigationBar(_ state: Bool, animated: Bool = true) {
+        navigationController?.setNavigationBarHidden(state, animated: animated)
     }
 }
