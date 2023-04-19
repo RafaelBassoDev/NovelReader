@@ -10,11 +10,13 @@ import Foundation
 struct Chapter: Identifiable, Equatable {
     var id: UUID
     let title: String
+    let subtitle: String?
     let content: String
 
-    init(title: String, content: String) {
+    init(title: String, subtitle: String? = nil, content: String) {
         self.id = UUID()
         self.title = title
+        self.subtitle = subtitle
         self.content = content
     }
 
