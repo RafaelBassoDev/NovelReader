@@ -21,8 +21,34 @@ class NovelRepository: NovelRepositoreable {
         return novelChapters.firstIndex(of: currentChapter)
     }
     
-    init(novels: [Novel]) {
-        self.novels = novels
+    init() {
+        let dataSource = [
+            Novel(
+                title: "A Will Eternal",
+                chapters: [
+                    Chapter(
+                        title: "Chapter 01",
+                        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam bibendum tincidunt turpis,et mattis purus elementum eget. Fusce tincidunt ultric."
+                    ),
+                    Chapter(title: "Chapter 02", content: "some text"),
+                    Chapter(title: "Chapter 03", content: "some text"),
+                    Chapter(title: "Chapter 04", content: "some text")
+                ]
+            ),
+            Novel(
+                title: "Immortal renegade",
+                chapters: [
+                    Chapter(title: "Chapter 01", content: "some text")
+                ]
+            ),
+            Novel(
+                title: "I Shal Seal The Heavens",
+                chapters: [
+                    Chapter(title: "Chapter 01", content: "some text")
+                ]
+            )
+        ]
+        self.novels = dataSource
     }
 }
 
