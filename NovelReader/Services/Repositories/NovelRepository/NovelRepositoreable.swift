@@ -16,4 +16,5 @@ protocol NovelRepositoreable {
     func setCurrentNovel(_ novel: Novel)
     func setCurrentChapter(_ chapter: Chapter)
     func getNextChapter() -> Chapter?
+    func getPreviousChapter() -> Chapter?
 }
