@@ -67,15 +67,16 @@ extension Coordinator {
         if let nextChapter = novelRepository.getNextChapter() {
             showReadingView(for: nextChapter)
         } else {
-            // swiftlint:disable trailing_closure
             showAlert(
                 title: "Last chapter reached!",
                 message: "It seems that there are no more chapters to read! Return to chapter list?",
-                defaultAction: {
-                    self.popToChapterList()
-                }
+                options: [
+                    .cancel(),
+                    .ok { [weak self] in
+                        self?.popToChapterList()
+                    }
+                ]
             )
-            // swiftlint:enable trailing_closure
         }
     }
     
@@ -85,7 +86,10 @@ extension Coordinator {
         } else {
             showAlert(
                 title: "Error",
-                message: "Could not find previous chapter."
+                message: "Could not find previous chapter.",
+                options: [
+                    .ok()
+                ]
             )
         }
     }
@@ -100,25 +104,51 @@ extension Coordinator {
 }
 
 extension Coordinator {
+    enum AlertOptions {
+        // swiftlint: disable identifier_name
+        case ok(_ completionHandler: (() -> Void)? = nil)
+        // swiftlint: enable identifier_name
+        case cancel(_ completionHandler: (() -> Void)? = nil)
+        case destructive(_ completionHandler: (() -> Void)? = nil)
+        
+        func getAction() -> UIAlertAction {
+            var title: String
+            var style: UIAlertAction.Style
+            var handler: () -> Void
+            
+            switch self {
+            case .ok(let completion):
+                title = "Ok"
+                style = .default
+                handler = completion ?? {}
+                
+            case .cancel(let completion):
+                title = "Cancel"
+                style = .cancel
+                handler = completion ?? {}
+                
+            case .destructive(let completion):
+                title = "Cancel"
+                style = .destructive
+                handler = completion ?? {}
+            }
+            
+            return UIAlertAction(title: title, style: style) { _ in handler() }
+        }
+    }
+    
     func showAlert(
         title: String,
         message: String,
-        defaultAction defaultCompletionHandler: (() -> Void)? = nil,
-        cancelAction cancelCompletionHandler: (() -> Void)? = nil
+        options: [AlertOptions]
     ) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            defaultCompletionHandler?()
+        for option in options {
+            let action = option.getAction()
+            alertController.addAction(action)
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            cancelCompletionHandler?()
-        }
-        
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        
+
         navigationController.present(alertController, animated: true)
     }
 }
