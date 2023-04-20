@@ -17,7 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navigationController = UINavigationController()
         
-        let novelRepository = NovelRepository()
+        let novelStorage = NovelStorage()
+        let novelRepository = NovelRepository(storage: novelStorage)
+        
         let settingsStorage = SettingsStorage()
         let settingsRepository = SettingsRepository(storage: settingsStorage)
         

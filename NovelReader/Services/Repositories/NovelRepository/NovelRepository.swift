@@ -21,7 +21,9 @@ class NovelRepository: NovelRepositoreable {
         return novelChapters.firstIndex(of: currentChapter)
     }
     
-    init() {
+    private let storage: NovelStorable
+    
+    init(storage: NovelStorable) {
         let dataSource = [
             Novel(
                 title: "A Will Eternal",
@@ -48,6 +50,7 @@ class NovelRepository: NovelRepositoreable {
                 ]
             )
         ]
+        self.storage = storage
         self.novels = dataSource
     }
 }
