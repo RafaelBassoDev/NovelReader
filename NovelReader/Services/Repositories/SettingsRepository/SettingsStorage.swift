@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsStorage {
-    private let DEFAULT_FONT_FAMILY = "SFPro"
+    private let DEFAULT_FONT_FAMILY = "Helvetica"
     private let DEFAULT_FONT_SIZE: Float = 30.0
     private let AVAILABLE_FONT_FAMILY_NAMES = [
         "ArialMT",
