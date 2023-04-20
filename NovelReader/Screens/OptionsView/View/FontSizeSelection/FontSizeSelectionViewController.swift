@@ -55,7 +55,7 @@ class FontSizeSelectionViewController: UIViewController, FontSettingsDelegatable
 
 extension FontSizeSelectionViewController {
     private func setRefereceTextFontSize(to newSize: Float) {
-        referenceText.font = UIFont.systemFont(ofSize: CGFloat(newSize))
+        referenceText.font = referenceText.font.withSize(CGFloat(newSize))
     }
 }
 
