@@ -136,10 +136,25 @@
 			children = (
 				55AA3B1929E885E500E4EEFB /* SettingsRepository.swift */,
 				55AA3B1B29E89A5600E4EEFB /* SettingsRepositoreable.swift */,
+			);
+			path = SettingsRepository;
+			sourceTree = "<group>";
+		};
+		5535637C29F1F46D008D9A0B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5535637D29F1F475008D9A0B /* Settings */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		5535637D29F1F475008D9A0B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
 				55A72AA929EF15C6005BCFBD /* SettingsStorage.swift */,
 				55A72AAB29EF15F3005BCFBD /* SettingsStorable.swift */,
 			);
-			path = SettingsRepository;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		5538ADAB29D35EB500D78B32 = {
@@ -224,6 +239,7 @@
 		5538ADEA29D37ECB00D78B32 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5535637C29F1F46D008D9A0B /* Storage */,
 				5538AE1D29DF46F100D78B32 /* Repositories */,
 				5538ADF429D4674300D78B32 /* Coordinator */,
 			);
