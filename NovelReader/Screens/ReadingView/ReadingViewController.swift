@@ -34,7 +34,6 @@ class ReadingViewController: UIViewController, Coordinatable {
 
     lazy var contentText: UITextView = {
         let textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 22)
         textView.text = viewModel.content
         textView.textAlignment = .left
         textView.isEditable = false
@@ -105,8 +104,6 @@ class ReadingViewController: UIViewController, Coordinatable {
         hideNavigationBar(false)
         hideNavigationBackButton(true)
         
-        updateFontSettings()
-        
         setNavigationButtonsActions()
         
         addSubviews()
@@ -128,7 +125,15 @@ class ReadingViewController: UIViewController, Coordinatable {
 
 extension ReadingViewController {
     private func updateFontSettings() {
-        contentText.font = settingsRepository?.getCurrentFont()
+        let currentFont = settingsRepository?.getCurrentFont()
+        var titleFontSize: CGFloat = 42
+        
+        if let currentFontSize = currentFont?.pointSize {
+            titleFontSize = currentFontSize + 24
+        }
+        
+        contentText.font = currentFont
+        titleLabel.font = titleLabel.font.withSize(titleFontSize)
         contentText.setNeedsDisplay()
     }
     
