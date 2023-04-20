@@ -25,6 +25,18 @@ class FontFamilySelectionViewController: UITableViewController, FontSettingsDele
 }
 
 extension FontFamilySelectionViewController {
+    private func isSelectedFont(_ font: UIFont) -> Bool {
+        return font.familyName == selectedFont.familyName
+    }
+    
+    private func setSelectedFont(_ font: UIFont) {
+        self.selectedFont = font
+        settingsDelegate?.didSetFontFamily(to: selectedFont.familyName)
+        tableView.reloadData()
+    }
+}
+
+extension FontFamilySelectionViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -38,24 +50,25 @@ extension FontFamilySelectionViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFont = fontOptions[indexPath.row]
-        settingsDelegate?.didSetFontFamily(to: selectedFont.familyName)
-        navigationController?.popViewController(animated: true)
+        let clickedFont = fontOptions[indexPath.row]
+        setSelectedFont(clickedFont)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        cell.selectionStyle = .gray
+        let currentFont = fontOptions[indexPath.row].withSize(24)
+        
+        if isSelectedFont(currentFont) {
+            cell.accessoryType = .checkmark
+        }
         
         let backgroundConfiguration = UIBackgroundConfiguration.listPlainCell()
         cell.backgroundConfiguration = backgroundConfiguration
         
-        let currentFont = fontOptions[indexPath.row]
-        
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = currentFont.familyName
-        contentConfiguration.textProperties.font = currentFont.withSize(24)
+        contentConfiguration.textProperties.font = currentFont
         cell.contentConfiguration = contentConfiguration
         
         return cell
