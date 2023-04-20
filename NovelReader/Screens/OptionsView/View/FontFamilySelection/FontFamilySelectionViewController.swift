@@ -11,9 +11,11 @@ class FontFamilySelectionViewController: UITableViewController, FontSettingsDele
     weak var settingsDelegate: FontSettingsSelectionDelegate?
     
     var fontOptions: [UIFont]!
+    var selectedFont: UIFont!
     
-    init(fontFamilyOptions: [UIFont]) {
+    init(fontFamilyOptions: [UIFont], currentFont: UIFont) {
         self.fontOptions = fontFamilyOptions
+        self.selectedFont = currentFont
         super.init(style: .plain)
     }
     
