@@ -20,13 +20,19 @@ final class Coordinator {
     }
     
     func start() {
-        let viewModel = NovelCollectionViewModel(novels: novelRepository.novels)
-        let viewController = NovelCollectionViewController(viewModel: viewModel)
-        viewController.coordinator = self
-        viewController.title = "Novels"
-        viewController.modalPresentationStyle = .fullScreen
-        
-        navigationController.pushViewController(viewController, animated: true)
+        Task(priority: .userInitiated) {
+            let novels = await novelRepository.getStoredNovels()
+            
+            DispatchQueue.main.async {
+                let viewModel = NovelCollectionViewModel(novels: novels)
+                let viewController = NovelCollectionViewController(viewModel: viewModel)
+                viewController.coordinator = self
+                viewController.title = "Novels"
+                viewController.modalPresentationStyle = .fullScreen
+                
+                self.navigationController.pushViewController(viewController, animated: true)
+            }
+        }
     }
     
     func pop() {
@@ -36,24 +42,38 @@ final class Coordinator {
 
 extension Coordinator {
     func showChapterList(for novel: Novel) {
-        let viewModel = ChapterListViewModel(chapters: novel.chapters)
-        let viewController = ChapterListViewController(viewModel: viewModel)
-        viewController.coordinator = self
-        viewController.title = "Chapters"
-        
-        self.novelRepository.setCurrentNovel(novel)
-        
-        navigationController.pushViewController(viewController, animated: true)
+        Task(priority: .userInitiated) {
+            let chapterList = await novelRepository.getStoredChapters(of: novel)
+            
+            DispatchQueue.main.async {
+                let viewModel = ChapterListViewModel(chapters: chapterList)
+                let viewController = ChapterListViewController(viewModel: viewModel)
+                viewController.coordinator = self
+                viewController.title = "Chapters"
+                
+                self.navigationController.pushViewController(viewController, animated: true)
+            }
+        }
     }
     
     func showReadingView(for chapter: Chapter) {
-        let viewModel = ReadingViewModel(chapter: chapter)
-        let viewController = ReadingViewController(viewModel: viewModel, settingsRepository: settingsRepository)
-        viewController.coordinator = self
         
-        self.novelRepository.setCurrentChapter(chapter)
-        
-        navigationController.pushViewController(viewController, animated: true)
+        Task(priority: .userInitiated) {
+            
+            // show loading screen
+            
+            let storedContent = await novelRepository.getChapterContent(chapter)
+            let chapterWithStoredContent = chapter.withContent(storedContent)
+            
+            DispatchQueue.main.async {
+                let viewModel = ReadingViewModel(chapter: chapterWithStoredContent)
+                let viewController = ReadingViewController(viewModel: viewModel, settingsRepository: self.settingsRepository)
+                viewController.coordinator = self
+                
+                self.navigationController.pushViewController(viewController, animated: true)
+            }
+            
+        }
     }
     
     func showSettings() {
@@ -64,33 +84,53 @@ extension Coordinator {
     }
     
     func showNextChapter() {
-        if let nextChapter = novelRepository.getNextChapter() {
-            showReadingView(for: nextChapter)
-        } else {
-            showAlert(
-                title: "Last chapter reached!",
-                message: "It seems that there are no more chapters to read! Return to chapter list?",
-                options: [
-                    .cancel(),
-                    .ok { [weak self] in
-                        self?.popToChapterList()
-                    }
-                ]
-            )
+        Task(priority: .userInitiated) {
+            
+            // show loading screen
+            
+            if let chapter = await novelRepository.getNextChapter() {
+                DispatchQueue.main.async { [weak self] in
+                    self?.showReadingView(for: chapter)
+                }
+                
+            } else {
+                DispatchQueue.main.async { [weak self] in
+                    self?.showAlert(
+                        title: "Last chapter reached!",
+                        message: "It seems that there are no more chapters to read! Return to chapter list?",
+                        options: [
+                            .cancel(),
+                            .ok {
+                                self?.popToChapterList()
+                            }
+                        ]
+                    )
+                }
+            }
         }
     }
     
     func showPreviousChapter() {
-        if let previousChapter = novelRepository.getPreviousChapter() {
-            showReadingView(for: previousChapter)
-        } else {
-            showAlert(
-                title: "Error",
-                message: "Could not find previous chapter.",
-                options: [
-                    .ok()
-                ]
-            )
+        Task(priority: .userInitiated) {
+            
+            // show loading screen
+            
+            if let chapter = await novelRepository.getPreviousChapter() {
+                DispatchQueue.main.async { [weak self] in
+                    self?.showReadingView(for: chapter)
+                }
+                
+            } else {
+                DispatchQueue.main.async { [weak self] in
+                    self?.showAlert(
+                        title: "Error",
+                        message: "Could not find previous chapter.",
+                        options: [
+                            .ok()
+                        ]
+                    )
+                }
+            }
         }
     }
     
