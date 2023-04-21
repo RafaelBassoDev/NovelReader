@@ -8,92 +8,59 @@
 import Foundation
 
 class NovelRepository: NovelRepositoreable {
-    private(set) var novels: [Novel]
-    private(set) var currentNovel: Novel?
-    private(set) var currentChapter: Chapter?
-    
-    var currentChapterIndex: Int? {
-        guard let novelChapters = currentNovel?.chapters, let currentChapter else { return nil }
-        
-        if novelChapters.isEmpty {
-            return nil
-        }
-        return novelChapters.firstIndex(of: currentChapter)
-    }
+    private var currentNovel: Novel?
+    private var currentChapterNumber: Int?
     
     private let storage: NovelStorable
     
     init(storage: NovelStorable) {
-        let dataSource = [
-            Novel(
-                title: "A Will Eternal",
-                chapters: [
-                    Chapter(
-                        title: "Chapter 01",
-                        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam bibendum tincidunt turpis,et mattis purus elementum eget. Fusce tincidunt ultric."
-                    ),
-                    Chapter(title: "Chapter 02", content: "some text"),
-                    Chapter(title: "Chapter 03", content: "some text"),
-                    Chapter(title: "Chapter 04", content: "some text")
-                ]
-            ),
-            Novel(
-                title: "Immortal renegade",
-                chapters: [
-                    Chapter(title: "Chapter 01", content: "some text")
-                ]
-            ),
-            Novel(
-                title: "I Shal Seal The Heavens",
-                chapters: [
-                    Chapter(title: "Chapter 01", content: "some text")
-                ]
-            )
-        ]
         self.storage = storage
-        self.novels = dataSource
     }
 }
 
 extension NovelRepository {
     func setCurrentNovel(_ novel: Novel) {
         self.currentNovel = novel
+        self.currentChapterNumber = nil
     }
     
     func setCurrentChapter(_ chapter: Chapter) {
-        self.currentChapter = chapter
+        self.currentChapterNumber = chapter.number
+    }
+}
+
+extension NovelRepository {
+    func getStoredNovels() async -> [Novel] {
+        return await storage.getStoredNovels()
     }
     
-    func getNextChapter() -> Chapter? {
-        guard let chapter = searchNextChapter() else {
+    func getStoredChapters(of novel: Novel) async -> [Chapter] {
+        return await storage.getStoredChapters(of: novel)
+    }
+    
+    func getNextChapter() async -> Chapter? {
+        guard let currentChapterNumber, currentChapterNumber + 1 <= 5 else {
             return nil
         }
-        setCurrentChapter(chapter)
+        guard let chapter = await storage.getStoredChapter(number: currentChapterNumber + 1) else {
+            return nil
+        }
         return chapter
     }
     
-    func getPreviousChapter() -> Chapter? {
-        guard let chapter = searchPreviousChapter() else {
+    func getPreviousChapter() async -> Chapter? {
+        guard let currentChapterNumber, currentChapterNumber - 1 > 0 else {
             return nil
         }
-        setCurrentChapter(chapter)
+        guard let chapter = await storage.getStoredChapter(number: currentChapterNumber - 1) else {
+            return nil
+        }
         return chapter
     }
     
-    private func searchNextChapter() -> Chapter? {
-        guard let currentNovelChapters = currentNovel?.chapters else { return nil }
-        guard let currentChapterIndex else { return nil }
-        
-        let lastChapterIndex = currentNovelChapters.count - 1
-        
-        guard currentChapterIndex < lastChapterIndex else { return nil }
-        
-        let nextChapterIndex = currentChapterIndex + 1
-        
-        return currentNovelChapters[nextChapterIndex]
-    }
-    
-    private func searchPreviousChapter() -> Chapter? {
-        return nil
+    func getChapterContent(_ chapter: Chapter) async -> String {
+        let storedContent = await storage.getStoredContent(of: chapter)
+        setCurrentChapter(chapter)
+        return storedContent
     }
 }
