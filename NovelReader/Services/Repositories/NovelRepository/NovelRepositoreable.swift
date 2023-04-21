@@ -8,13 +8,9 @@
 import Foundation
 
 protocol NovelRepositoreable {
-    var novels: [Novel] { get }
-    var currentNovel: Novel? { get }
-    var currentChapter: Chapter? { get }
-    var currentChapterIndex: Int? { get }
-    
-    func setCurrentNovel(_ novel: Novel)
-    func setCurrentChapter(_ chapter: Chapter)
-    func getNextChapter() -> Chapter?
-    func getPreviousChapter() -> Chapter?
+    func getStoredNovels() async -> [Novel]
+    func getStoredChapters(of novel: Novel) async -> [Chapter]
+    func getNextChapter() async -> Chapter?
+    func getPreviousChapter() async -> Chapter?
+    func getChapterContent(_ chapter: Chapter) async -> String
 }
