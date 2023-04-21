@@ -10,5 +10,4 @@ import UIKit.UIImage
 struct Novel {
     var poster: UIImage?
     let title: String
-    var chapters: [Chapter]
 }
