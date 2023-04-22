@@ -101,20 +101,19 @@ extension Coordinator {
             let chapter = await novelRepository.getNextChapter()
             
             loadingHandler.stopLoading()
+            
+            if let chapter {
+                showReadingView(for: chapter)
                 
             } else {
-                DispatchQueue.main.async { [weak self] in
-                    self?.showAlert(
-                        title: "Last chapter reached!",
-                        message: "It seems that there are no more chapters to read! Return to chapter list?",
-                        options: [
-                            .cancel(),
-                            .ok {
-                                self?.popToChapterList()
-                            }
-                        ]
-                    )
-                }
+                showAlert(
+                    title: "Last chapter reached!",
+                    message: "It seems that there are no more chapters to read! Return to chapter list?",
+                    options: [
+                        .cancel(),
+                        .ok { self.popToChapterList() }
+                    ]
+                )
             }
         }
     }
@@ -124,19 +123,18 @@ extension Coordinator {
             
             loadingHandler.startLoading()
             
-            let chapter = await novelRepository.getNextChapter()
+            let chapter = await novelRepository.getPreviousChapter()
             
             loadingHandler.stopLoading()
+            
+            if let chapter {
+                showReadingView(for: chapter)
             } else {
-                DispatchQueue.main.async { [weak self] in
-                    self?.showAlert(
-                        title: "Error",
-                        message: "Could not find previous chapter.",
-                        options: [
-                            .ok()
-                        ]
-                    )
-                }
+                showAlert(
+                    title: "Error",
+                    message: "Could not find previous chapter.",
+                    options: [ .ok() ]
+                )
             }
         }
     }
