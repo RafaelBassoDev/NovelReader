@@ -9,21 +9,57 @@ import UIKit
 
 class LoadingViewController: UIViewController {
 
+    private(set) lazy var loadingindicator: UIActivityIndicatorView = {
+        let loadingView = UIActivityIndicatorView(style: .large)
+        
+        loadingView.style = .large
+        loadingView.color = .white
+        
+        loadingView.startAnimating()
+        
+        loadingView.autoresizingMask = [
+            .flexibleLeftMargin, .flexibleRightMargin,
+            .flexibleTopMargin, .flexibleBottomMargin
+        ]
+        
+        return loadingView
+    }()
+    
+    private(set) lazy var blurEffectView: UIVisualEffectView = {
+        let effect = UIBlurEffect(style: .regular)
+        let view = UIVisualEffectView(effect: effect)
+        
+        view.alpha = 0.5
+        
+        view.autoresizingMask = [
+            .flexibleWidth,
+            .flexibleHeight
+        ]
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .black.withAlphaComponent(0.5)
+        
+        setBlurEffect()
+        setLoadingIndicator()
+    }
+}
+
+extension LoadingViewController {
+    private func setBlurEffect() {
+        blurEffectView.frame = view.bounds
+        view.insertSubview(blurEffectView, at: 0)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setLoadingIndicator() {
+        loadingindicator.center = CGPoint(
+            x: view.bounds.midX,
+            y: view.bounds.midY
+        )
+        view.addSubview(loadingindicator)
     }
-    */
-
 }
