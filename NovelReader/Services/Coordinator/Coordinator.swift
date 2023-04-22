@@ -44,7 +44,14 @@ final class Coordinator {
 extension Coordinator {
     func showChapterList(for novel: Novel) {
         Task(priority: .userInitiated) {
+            
+            loadingHandler.startLoading()
+            
             let chapterList = await novelRepository.getStoredChapters(of: novel)
+            
+            try await Task.sleep(nanoseconds: 5_000_000_000)
+            
+            loadingHandler.stopLoading()
             
             DispatchQueue.main.async {
                 let viewModel = ChapterListViewModel(chapters: chapterList)
@@ -61,10 +68,12 @@ extension Coordinator {
         
         Task(priority: .userInitiated) {
             
-            // show loading screen
+            loadingHandler.startLoading()
             
             let storedContent = await novelRepository.getChapterContent(chapter)
             let chapterWithStoredContent = chapter.withContent(storedContent)
+            
+            loadingHandler.stopLoading()
             
             DispatchQueue.main.async {
                 let viewModel = ReadingViewModel(chapter: chapterWithStoredContent)
@@ -87,12 +96,11 @@ extension Coordinator {
     func showNextChapter() {
         Task(priority: .userInitiated) {
             
-            // show loading screen
+            loadingHandler.startLoading()
             
-            if let chapter = await novelRepository.getNextChapter() {
-                DispatchQueue.main.async { [weak self] in
-                    self?.showReadingView(for: chapter)
-                }
+            let chapter = await novelRepository.getNextChapter()
+            
+            loadingHandler.stopLoading()
                 
             } else {
                 DispatchQueue.main.async { [weak self] in
@@ -114,13 +122,11 @@ extension Coordinator {
     func showPreviousChapter() {
         Task(priority: .userInitiated) {
             
-            // show loading screen
+            loadingHandler.startLoading()
             
-            if let chapter = await novelRepository.getPreviousChapter() {
-                DispatchQueue.main.async { [weak self] in
-                    self?.showReadingView(for: chapter)
-                }
-                
+            let chapter = await novelRepository.getNextChapter()
+            
+            loadingHandler.stopLoading()
             } else {
                 DispatchQueue.main.async { [weak self] in
                     self?.showAlert(
