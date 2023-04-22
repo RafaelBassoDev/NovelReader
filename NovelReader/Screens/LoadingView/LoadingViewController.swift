@@ -12,7 +12,6 @@ class LoadingViewController: UIViewController {
     private(set) lazy var loadingindicator: UIActivityIndicatorView = {
         let loadingView = UIActivityIndicatorView(style: .large)
         loadingView.color = .white
-        loadingView.startAnimating()
         return loadingView
     }()
     
@@ -56,6 +55,16 @@ class LoadingViewController: UIViewController {
         loadingBackground.addSubview(loadingText)
         
         setConstraints()
+    }
+}
+
+extension LoadingViewController {
+    func startAnimation() {
+        loadingindicator.startAnimating()
+    }
+    
+    func stopAnimation() {
+        loadingindicator.stopAnimating()
     }
 }
 
