@@ -8,15 +8,16 @@
 import UIKit
 
 final class Coordinator {
-    var navigationController: UINavigationController
-    
-    let novelRepository: NovelRepositoreable
-    let settingsRepository: SettingsRepositoreable
+    private let navigationController: UINavigationController
+    private let novelRepository: NovelRepositoreable
+    private let settingsRepository: SettingsRepositoreable
+    private let loadingHandler: LoadingHandler
     
     init(navigationController: UINavigationController, novelRepository: NovelRepositoreable, settingsRepository: SettingsRepositoreable) {
         self.navigationController = navigationController
         self.novelRepository = novelRepository
         self.settingsRepository = settingsRepository
+        self.loadingHandler = LoadingHandler(navigationController: navigationController)
     }
     
     func start() {
