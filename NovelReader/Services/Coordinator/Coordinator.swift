@@ -145,12 +145,12 @@ extension Coordinator {
 }
 
 extension Coordinator {
-    enum AlertOptions {
+    enum AlertOption {
         // swiftlint: disable identifier_name
-        case ok(_ completionHandler: (() -> Void)? = nil)
+        case ok(label: String = "Ok", _ completionHandler: (() -> Void)? = nil)
         // swiftlint: enable identifier_name
-        case cancel(_ completionHandler: (() -> Void)? = nil)
-        case destructive(_ completionHandler: (() -> Void)? = nil)
+        case cancel(label: String = "Cancel", _ completionHandler: (() -> Void)? = nil)
+        case destructive(label: String = "Cancel", _ completionHandler: (() -> Void)? = nil)
         
         func getAction() -> UIAlertAction {
             var title: String
@@ -158,18 +158,18 @@ extension Coordinator {
             var handler: () -> Void
             
             switch self {
-            case .ok(let completion):
-                title = "Ok"
+            case .ok(let label, let completion):
+                title = label
                 style = .default
                 handler = completion ?? {}
                 
-            case .cancel(let completion):
-                title = "Cancel"
+            case .cancel(let label, let completion):
+                title = label
                 style = .cancel
                 handler = completion ?? {}
                 
-            case .destructive(let completion):
-                title = "Cancel"
+            case .destructive(let label, let completion):
+                title = label
                 style = .destructive
                 handler = completion ?? {}
             }
