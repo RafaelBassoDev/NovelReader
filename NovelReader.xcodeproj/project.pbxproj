@@ -11,6 +11,7 @@
 		550FA25829E9D34F005D6E04 /* SliderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FA25729E9D34F005D6E04 /* SliderViewDelegate.swift */; };
 		5535638029F1F4CC008D9A0B /* NovelStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5535637F29F1F4CC008D9A0B /* NovelStorage.swift */; };
 		5535638229F1F597008D9A0B /* NovelStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5535638129F1F597008D9A0B /* NovelStorable.swift */; };
+		5535638529F35F67008D9A0B /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5535638429F35F67008D9A0B /* LoadingViewController.swift */; };
 		5538ADB829D35EB600D78B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADB729D35EB600D78B32 /* AppDelegate.swift */; };
 		5538ADBA29D35EB600D78B32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADB929D35EB600D78B32 /* SceneDelegate.swift */; };
 		5538ADC129D35EB700D78B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5538ADC029D35EB700D78B32 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		550FA25729E9D34F005D6E04 /* SliderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewDelegate.swift; sourceTree = "<group>"; };
 		5535637F29F1F4CC008D9A0B /* NovelStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelStorage.swift; sourceTree = "<group>"; };
 		5535638129F1F597008D9A0B /* NovelStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelStorable.swift; sourceTree = "<group>"; };
+		5535638429F35F67008D9A0B /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		5538ADB429D35EB500D78B32 /* NovelReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NovelReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5538ADB729D35EB600D78B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5538ADB929D35EB600D78B32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 			path = Novels;
 			sourceTree = "<group>";
 		};
+		5535638329F35F49008D9A0B /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				5535638429F35F67008D9A0B /* LoadingViewController.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
 		5538ADAB29D35EB500D78B32 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +251,7 @@
 		5538ADE929D361B200D78B32 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5535638329F35F49008D9A0B /* LoadingView */,
 				5538ADF729D46A6500D78B32 /* Shared */,
 				5538AE0C29D603F900D78B32 /* OptionsView */,
 				5538AE0929D4E91000D78B32 /* ReadingView */,
@@ -563,6 +574,7 @@
 				5538AE1829DB5BF100D78B32 /* SizeSliderView.swift in Sources */,
 				5535638029F1F4CC008D9A0B /* NovelStorage.swift in Sources */,
 				5538AE1F29DF470800D78B32 /* NovelRepository.swift in Sources */,
+				5535638529F35F67008D9A0B /* LoadingViewController.swift in Sources */,
 				5538AE2129DF47A300D78B32 /* NovelRepositoreable.swift in Sources */,
 				5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */,
 				55AA3B1C29E89A5600E4EEFB /* SettingsRepositoreable.swift in Sources */,
