@@ -181,15 +181,17 @@ extension Coordinator {
     func showAlert(
         title: String,
         message: String,
-        options: [AlertOptions]
+        options: [AlertOption]
     ) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        for option in options {
-            let action = option.getAction()
-            alertController.addAction(action)
+        DispatchQueue.main.async { [weak self] in
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            for option in options {
+                let action = option.getAction()
+                alertController.addAction(action)
+            }
+            
+            self?.navigationController.present(alertController, animated: true)
         }
-
-        navigationController.present(alertController, animated: true)
     }
 }
