@@ -16,21 +16,22 @@ struct LoadingHandler {
         return controller
     }()
     
-    private weak var navigationController: UINavigationController?
+    private weak var rootViewController: UIViewController?
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(rootViewController: UIViewController) {
+        self.rootViewController = rootViewController
     }
     
     func startLoading() {
-        DispatchQueue.main.async {
-            self.navigationController?.present(loadingController, animated: true)
+        DispatchQueue.main.sync {
+            loadingController.startAnimation()
+            rootViewController?.present(loadingController, animated: false)
         }
     }
     
     func stopLoading() {
-        DispatchQueue.main.async {
-            self.loadingController.dismiss(animated: true)
+        DispatchQueue.main.sync {
+            loadingController.stopAnimation()
         }
     }
 }
