@@ -37,6 +37,13 @@ class NovelCollectionViewController: UICollectionViewController, Coordinatable {
 }
 
 extension NovelCollectionViewController {
+    func setNovelList(to novels: [Novel]) {
+        viewModel.setNovels(novels)
+        self.collectionView.reloadData()
+    }
+}
+
+extension NovelCollectionViewController {
     // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
