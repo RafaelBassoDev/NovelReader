@@ -8,9 +8,9 @@
 import Foundation
 
 struct NovelCollectionViewModel {
-    let novels: [Novel]
+    private var novels: [Novel]
     
-    init(novels: [Novel]) {
+    init(novels: [Novel] = []) {
         self.novels = novels
     }
 }
@@ -23,5 +23,9 @@ extension NovelCollectionViewModel {
     func getNovel(at indexPath: IndexPath) -> Novel {
         let index = indexPath.row
         return novels[index]
+    }
+    
+    mutating func setNovels(_ novels: [Novel]) {
+        self.novels = novels
     }
 }
