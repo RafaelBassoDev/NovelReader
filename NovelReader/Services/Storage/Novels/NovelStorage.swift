@@ -33,7 +33,14 @@ class NovelStorage: NovelStorable {
         return dataSource[number - 1]
     }
     
+    // swiftlint:disable all
     func getStoredContent(of chapter: Chapter) async -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id. Pellentesque at iaculis leo."
+        return """
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id.
+        
+        Pellentesque at iaculis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id. Pellentesque at iaculis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id. Pellentesque at iaculis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id. Pellentesque at iaculis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id. Pellentesque at iaculis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id. Pellentesque at iaculis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id.
+        
+        Pellentesque at iaculis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id. Pellentesque at iaculis leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id. Pellentesque at iaculis leo.
+        """
     }
 }
