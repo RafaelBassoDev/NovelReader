@@ -11,27 +11,27 @@ final class Coordinator {
     private let navigationController: UINavigationController
     private let novelRepository: NovelRepositoreable
     private let settingsRepository: SettingsRepositoreable
-    private let loadingHandler: LoadingHandler
     
     init(navigationController: UINavigationController, novelRepository: NovelRepositoreable, settingsRepository: SettingsRepositoreable) {
         self.navigationController = navigationController
         self.novelRepository = novelRepository
         self.settingsRepository = settingsRepository
-        self.loadingHandler = LoadingHandler(navigationController: navigationController)
     }
     
     func start() {
+        let viewModel = NovelCollectionViewModel()
+        let viewController = NovelCollectionViewController(viewModel: viewModel)
+        viewController.coordinator = self
+        viewController.title = "Novels"
+        
+        self.navigationController.pushViewController(viewController, animated: true)
+        
         Task(priority: .userInitiated) {
+            
             let novels = await novelRepository.getStoredNovels()
             
             DispatchQueue.main.async {
-                let viewModel = NovelCollectionViewModel(novels: novels)
-                let viewController = NovelCollectionViewController(viewModel: viewModel)
-                viewController.coordinator = self
-                viewController.title = "Novels"
-                viewController.modalPresentationStyle = .fullScreen
-                
-                self.navigationController.pushViewController(viewController, animated: true)
+                viewController.setNovelList(to: novels)
             }
         }
     }
@@ -45,13 +45,7 @@ extension Coordinator {
     func showChapterList(for novel: Novel) {
         Task(priority: .userInitiated) {
             
-            loadingHandler.startLoading()
-            
             let chapterList = await novelRepository.getStoredChapters(of: novel)
-            
-            try await Task.sleep(nanoseconds: 5_000_000_000)
-            
-            loadingHandler.stopLoading()
             
             DispatchQueue.main.async {
                 let viewModel = ChapterListViewModel(chapters: chapterList)
@@ -68,12 +62,8 @@ extension Coordinator {
         
         Task(priority: .userInitiated) {
             
-            loadingHandler.startLoading()
-            
             let storedContent = await novelRepository.getChapterContent(chapter)
             let chapterWithStoredContent = chapter.withContent(storedContent)
-            
-            loadingHandler.stopLoading()
             
             DispatchQueue.main.async {
                 let viewModel = ReadingViewModel(chapter: chapterWithStoredContent)
@@ -82,7 +72,6 @@ extension Coordinator {
                 
                 self.navigationController.pushViewController(viewController, animated: true)
             }
-            
         }
     }
     
@@ -96,11 +85,7 @@ extension Coordinator {
     func showNextChapter() {
         Task(priority: .userInitiated) {
             
-            loadingHandler.startLoading()
-            
             let chapter = await novelRepository.getNextChapter()
-            
-            loadingHandler.stopLoading()
             
             if let chapter {
                 showReadingView(for: chapter)
@@ -121,11 +106,7 @@ extension Coordinator {
     func showPreviousChapter() {
         Task(priority: .userInitiated) {
             
-            loadingHandler.startLoading()
-            
             let chapter = await novelRepository.getPreviousChapter()
-            
-            loadingHandler.stopLoading()
             
             if let chapter {
                 showReadingView(for: chapter)
@@ -187,7 +168,7 @@ extension Coordinator {
         message: String,
         options: [AlertOption]
     ) {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
             for option in options {
@@ -195,7 +176,7 @@ extension Coordinator {
                 alertController.addAction(action)
             }
             
-            self?.navigationController.present(alertController, animated: true)
+            self.navigationController.present(alertController, animated: true)
         }
     }
 }
