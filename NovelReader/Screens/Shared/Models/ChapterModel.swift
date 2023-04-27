@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Chapter {
+struct ChapterModel {
     let number: Int
     let title: String
     let subtitle: String?
@@ -21,13 +21,13 @@ struct Chapter {
     }
 }
 
-extension Chapter {
+extension ChapterModel {
     func withContent(_ newContent: String) -> Self {
-        return Chapter(number: number, title: title, subtitle: subtitle, content: newContent)
+        return ChapterModel(number: number, title: title, subtitle: subtitle, content: newContent)
     }
 }
 
-extension Chapter: Equatable {
+extension ChapterModel: Equatable {
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.number == rhs.number
     }

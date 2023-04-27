@@ -24,7 +24,7 @@ extension NovelRepository {
         self.currentChapterNumber = nil
     }
     
-    func setCurrentChapter(_ chapter: Chapter) {
+    func setCurrentChapter(_ chapter: ChapterModel) {
         self.currentChapterNumber = chapter.number
     }
 }
@@ -34,11 +34,11 @@ extension NovelRepository {
         return await storage.getStoredNovels()
     }
     
-    func getStoredChapters(of novel: NovelModel) async -> [Chapter] {
+    func getStoredChapters(of novel: NovelModel) async -> [ChapterModel] {
         return await storage.getStoredChapters(of: novel)
     }
     
-    func getNextChapter() async -> Chapter? {
+    func getNextChapter() async -> ChapterModel? {
         guard let currentChapterNumber, currentChapterNumber + 1 <= 5 else {
             return nil
         }
@@ -48,7 +48,7 @@ extension NovelRepository {
         return chapter
     }
     
-    func getPreviousChapter() async -> Chapter? {
+    func getPreviousChapter() async -> ChapterModel? {
         guard let currentChapterNumber, currentChapterNumber - 1 > 0 else {
             return nil
         }
@@ -58,7 +58,7 @@ extension NovelRepository {
         return chapter
     }
     
-    func getChapterContent(_ chapter: Chapter) async -> String {
+    func getChapterContent(_ chapter: ChapterModel) async -> String {
         let storedContent = await storage.getStoredContent(of: chapter)
         setCurrentChapter(chapter)
         return storedContent

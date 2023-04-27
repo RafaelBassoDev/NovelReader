@@ -58,7 +58,7 @@ extension Coordinator {
         }
     }
     
-    func showReadingView(for chapter: Chapter) {
+    func showReadingView(for chapter: ChapterModel) {
         
         Task(priority: .userInitiated) {
             

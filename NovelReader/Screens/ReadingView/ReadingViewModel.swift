@@ -8,9 +8,9 @@
 import Foundation
 
 struct ReadingViewModel {
-    private let chapter: Chapter
+    private let chapter: ChapterModel
     
-    init(chapter: Chapter) {
+    init(chapter: ChapterModel) {
         self.chapter = chapter
     }
 }

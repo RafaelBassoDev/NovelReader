@@ -9,10 +9,10 @@ import Foundation
 
 class NovelStorage: NovelStorable {
     
-    private var dataSource: [Chapter] = {
-        var chapters = [Chapter]()
+    private var dataSource: [ChapterModel] = {
+        var chapters = [ChapterModel]()
         for num in 1...5 {
-            chapters.append(Chapter(number: num, title: "Chapter \(num)", subtitle: "The subtitle of chapter \(num)"))
+            chapters.append(ChapterModel(number: num, title: "Chapter \(num)", subtitle: "The subtitle of chapter \(num)"))
         }
         return chapters
     }()
@@ -24,17 +24,17 @@ class NovelStorage: NovelStorable {
         ]
     }
     
-    func getStoredChapters(of novel: NovelModel) async -> [Chapter] {
+    func getStoredChapters(of novel: NovelModel) async -> [ChapterModel] {
         return dataSource
     }
     
     // Chapter without content
-    func getStoredChapter(number: Int) async -> Chapter? {
+    func getStoredChapter(number: Int) async -> ChapterModel? {
         return dataSource[number - 1]
     }
     
     // swiftlint:disable all
-    func getStoredContent(of chapter: Chapter) async -> String {
+    func getStoredContent(of chapter: ChapterModel) async -> String {
         return """
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus viverra bibendum libero, quis sollicitudin nibh eleifend id.
         

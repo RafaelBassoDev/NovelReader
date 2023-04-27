@@ -8,9 +8,9 @@
 import Foundation
 
 struct ChapterListViewModel {
-    let chapters: [Chapter]
+    let chapters: [ChapterModel]
     
-    init(chapters: [Chapter]) {
+    init(chapters: [ChapterModel]) {
         self.chapters = chapters
     }
 }
@@ -20,7 +20,7 @@ extension ChapterListViewModel {
         chapters.count
     }
     
-    func getChapter(at indexPath: IndexPath) -> Chapter {
+    func getChapter(at indexPath: IndexPath) -> ChapterModel {
         let index = indexPath.row
         return chapters[index]
     }

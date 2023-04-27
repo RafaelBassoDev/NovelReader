@@ -22,7 +22,7 @@
 		5538ADF229D466A300D78B32 /* NovelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */; };
 		5538ADF629D4678100D78B32 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF529D4678100D78B32 /* Coordinatable.swift */; };
 		5538ADFA29D46A7800D78B32 /* NovelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADF929D46A7800D78B32 /* NovelModel.swift */; };
-		5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADFB29D46A8200D78B32 /* Chapter.swift */; };
+		5538ADFC29D46A8200D78B32 /* ChapterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538ADFB29D46A8200D78B32 /* ChapterModel.swift */; };
 		5538AE0129D46F5700D78B32 /* NovelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0029D46F5700D78B32 /* NovelCollectionViewCell.swift */; };
 		5538AE0429D4700800D78B32 /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0329D4700800D78B32 /* CellIdentifiable.swift */; };
 		5538AE0829D4BA9100D78B32 /* ChapterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */; };
@@ -80,7 +80,7 @@
 		5538ADF129D466A300D78B32 /* NovelCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewController.swift; sourceTree = "<group>"; };
 		5538ADF529D4678100D78B32 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		5538ADF929D46A7800D78B32 /* NovelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelModel.swift; sourceTree = "<group>"; };
-		5538ADFB29D46A8200D78B32 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		5538ADFB29D46A8200D78B32 /* ChapterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterModel.swift; sourceTree = "<group>"; };
 		5538AE0029D46F5700D78B32 /* NovelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovelCollectionViewCell.swift; sourceTree = "<group>"; };
 		5538AE0329D4700800D78B32 /* CellIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 		5538AE0729D4BA9100D78B32 /* ChapterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListViewController.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				5538ADF929D46A7800D78B32 /* NovelModel.swift */,
-				5538ADFB29D46A8200D78B32 /* Chapter.swift */,
+				5538ADFB29D46A8200D78B32 /* ChapterModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -572,7 +572,7 @@
 				5538ADFA29D46A7800D78B32 /* NovelModel.swift in Sources */,
 				5538AE0129D46F5700D78B32 /* NovelCollectionViewCell.swift in Sources */,
 				550FA25829E9D34F005D6E04 /* SliderViewDelegate.swift in Sources */,
-				5538ADFC29D46A8200D78B32 /* Chapter.swift in Sources */,
+				5538ADFC29D46A8200D78B32 /* ChapterModel.swift in Sources */,
 				5538AE0B29D4E95700D78B32 /* ReadingViewController.swift in Sources */,
 				55AA3B1A29E885E500E4EEFB /* SettingsRepository.swift in Sources */,
 			);
