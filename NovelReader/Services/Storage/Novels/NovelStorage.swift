@@ -17,14 +17,14 @@ class NovelStorage: NovelStorable {
         return chapters
     }()
     
-    func getStoredNovels() async -> [Novel] {
+    func getStoredNovels() async -> [NovelModel] {
         return [
-            Novel(title: "A Will Eternal"),
-            Novel(title: "Immortal Renagate")
+            NovelModel(title: "A Will Eternal"),
+            NovelModel(title: "Immortal Renagate")
         ]
     }
     
-    func getStoredChapters(of novel: Novel) async -> [Chapter] {
+    func getStoredChapters(of novel: NovelModel) async -> [Chapter] {
         return dataSource
     }
     

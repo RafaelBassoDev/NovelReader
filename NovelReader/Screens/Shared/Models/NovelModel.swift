@@ -7,7 +7,7 @@
 
 import UIKit.UIImage
 
-struct Novel {
+struct NovelModel {
     var poster: UIImage?
     let title: String
 }

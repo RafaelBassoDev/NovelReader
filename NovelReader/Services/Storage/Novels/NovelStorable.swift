@@ -8,8 +8,8 @@
 import Foundation
 
 protocol NovelStorable: AnyObject {
-    func getStoredNovels() async -> [Novel]
-    func getStoredChapters(of novel: Novel) async -> [Chapter]
+    func getStoredNovels() async -> [NovelModel]
+    func getStoredChapters(of novel: NovelModel) async -> [Chapter]
     func getStoredChapter(number: Int) async -> Chapter?
     func getStoredContent(of chapter: Chapter) async -> String
 }

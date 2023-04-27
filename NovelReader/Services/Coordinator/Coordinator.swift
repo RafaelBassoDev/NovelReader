@@ -42,7 +42,7 @@ final class Coordinator {
 }
 
 extension Coordinator {
-    func showChapterList(for novel: Novel) {
+    func showChapterList(for novel: NovelModel) {
         Task(priority: .userInitiated) {
             
             let chapterList = await novelRepository.getStoredChapters(of: novel)

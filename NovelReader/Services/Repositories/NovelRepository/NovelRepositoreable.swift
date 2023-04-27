@@ -8,8 +8,8 @@
 import Foundation
 
 protocol NovelRepositoreable {
-    func getStoredNovels() async -> [Novel]
-    func getStoredChapters(of novel: Novel) async -> [Chapter]
+    func getStoredNovels() async -> [NovelModel]
+    func getStoredChapters(of novel: NovelModel) async -> [Chapter]
     func getNextChapter() async -> Chapter?
     func getPreviousChapter() async -> Chapter?
     func getChapterContent(_ chapter: Chapter) async -> String

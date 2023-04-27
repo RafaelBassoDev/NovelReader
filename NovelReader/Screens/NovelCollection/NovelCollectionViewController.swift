@@ -37,7 +37,7 @@ class NovelCollectionViewController: UICollectionViewController, Coordinatable {
 }
 
 extension NovelCollectionViewController {
-    func setNovelList(to novels: [Novel]) {
+    func setNovelList(to novels: [NovelModel]) {
         viewModel.setNovels(novels)
         self.collectionView.reloadData()
     }

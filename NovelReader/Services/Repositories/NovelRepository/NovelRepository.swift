@@ -8,7 +8,7 @@
 import Foundation
 
 class NovelRepository: NovelRepositoreable {
-    private var currentNovel: Novel?
+    private var currentNovel: NovelModel?
     private var currentChapterNumber: Int?
     
     private let storage: NovelStorable
@@ -19,7 +19,7 @@ class NovelRepository: NovelRepositoreable {
 }
 
 extension NovelRepository {
-    func setCurrentNovel(_ novel: Novel) {
+    func setCurrentNovel(_ novel: NovelModel) {
         self.currentNovel = novel
         self.currentChapterNumber = nil
     }
@@ -30,11 +30,11 @@ extension NovelRepository {
 }
 
 extension NovelRepository {
-    func getStoredNovels() async -> [Novel] {
+    func getStoredNovels() async -> [NovelModel] {
         return await storage.getStoredNovels()
     }
     
-    func getStoredChapters(of novel: Novel) async -> [Chapter] {
+    func getStoredChapters(of novel: NovelModel) async -> [Chapter] {
         return await storage.getStoredChapters(of: novel)
     }
     

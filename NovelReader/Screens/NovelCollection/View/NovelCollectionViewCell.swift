@@ -29,7 +29,7 @@ class NovelCollectionViewCell: UICollectionViewCell, CellIdentifiable {
         return view
     }()
     
-    func configure(with novel: Novel) {
+    func configure(with novel: NovelModel) {
         self.poster.image = novel.poster
         self.title.text = novel.title
         
