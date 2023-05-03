@@ -9,6 +9,9 @@ import UIKit
 
 class ReadingViewController: UIViewController, Coordinatable {
     
+    private let MIN_TITLE_FONT_SIZE: CGFloat = 32
+    private let MAX_TITLE_FONT_SIZE: CGFloat = 56
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         return scrollView
@@ -101,9 +104,6 @@ class ReadingViewController: UIViewController, Coordinatable {
         
         view.backgroundColor = .black
         
-        hideNavigationBar(false)
-        hideNavigationBackButton(true)
-        
         setNavigationButtonsActions()
         
         addSubviews()
@@ -113,30 +113,34 @@ class ReadingViewController: UIViewController, Coordinatable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.hidesBarsOnSwipe = true
-        updateFontSettings()
+        hideNavigationBackButton(true)
+        
+        guard let currentFont = settingsRepository?.getCurrentFont() else { return }
+        setTitleFont(to: currentFont)
+        setContentFont(to: currentFont)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.hidesBarsOnSwipe = false
+        hideNavigationBackButton(false)
     }
 }
 
 extension ReadingViewController {
-    private func updateFontSettings() {
-        let currentFont = settingsRepository?.getCurrentFont()
-        var titleFontSize: CGFloat = 42
-        
-        if let currentFontSize = currentFont?.pointSize {
-            titleFontSize = currentFontSize + 24
-        }
-        
-        contentText.font = currentFont
-        titleLabel.font = titleLabel.font.withSize(titleFontSize)
-        contentText.setNeedsDisplay()
+    private func setTitleFont(to font: UIFont) {
+        let currentFontSize = font.pointSize
+        let titleFontSize = min(max(currentFontSize, MIN_TITLE_FONT_SIZE), MAX_TITLE_FONT_SIZE)
+        titleLabel.font = font.withSize(titleFontSize)
+        titleLabel.setNeedsDisplay()
     }
     
+    private func setContentFont(to font: UIFont) {
+        contentText.font = font
+        contentText.setNeedsDisplay()
+    }
+}
+
+extension ReadingViewController {
     private func addSubviews() {
         view.addSubview(scrollView)
         
@@ -233,24 +237,18 @@ extension ReadingViewController {
         
         previousChapterButton.addAction(
             UIAction { [weak self] _ in
-                self?.hideNavigationBar(false)
-                self?.hideNavigationBackButton(true)
                 self?.coordinator?.showPreviousChapter()
             }, for: .touchUpInside
         )
         
         nextChapterButton.addAction(
             UIAction { [weak self] _ in
-                self?.hideNavigationBar(false)
-                self?.hideNavigationBackButton(true)
                 self?.coordinator?.showNextChapter()
             }, for: .touchUpInside
         )
         
         chapterListButton.addAction(
             UIAction { [weak self] _ in
-                self?.hideNavigationBar(false)
-                self?.hideNavigationBackButton(false)
                 self?.coordinator?.popToChapterList()
             }, for: .touchUpInside
         )
@@ -267,9 +265,5 @@ extension ReadingViewController {
 extension ReadingViewController {
     private func hideNavigationBackButton(_ state: Bool, animated: Bool = true) {
         navigationItem.setHidesBackButton(state, animated: animated)
-    }
-    
-    private func hideNavigationBar(_ state: Bool, animated: Bool = true) {
-        navigationController?.setNavigationBarHidden(state, animated: animated)
     }
 }
