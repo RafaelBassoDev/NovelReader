@@ -79,11 +79,13 @@ extension SettingsViewController {
             let currentFont = repository.getCurrentFont()
             let controller = FontFamilySelectionViewController(fontFamilyOptions: fontFamilies, currentFont: currentFont)
             controller.settingsDelegate = self
+            controller.navigationItem.largeTitleDisplayMode = .never
             viewController = controller
         case .fontSize:
             let currentFont = repository.getCurrentFont()
             let controller = FontSizeSelectionViewController(font: currentFont)
             controller.settingsDelegate = self
+            controller.navigationItem.largeTitleDisplayMode = .never
             viewController = controller
         }
         

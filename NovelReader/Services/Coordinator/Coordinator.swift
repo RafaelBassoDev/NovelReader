@@ -69,6 +69,7 @@ extension Coordinator {
                 let viewModel = ReadingViewModel(chapter: chapterWithStoredContent)
                 let viewController = ReadingViewController(viewModel: viewModel, settingsRepository: self.settingsRepository)
                 viewController.coordinator = self
+                viewController.navigationItem.largeTitleDisplayMode = .never
                 
                 self.navigationController.pushViewController(viewController, animated: true)
             }
@@ -78,6 +79,7 @@ extension Coordinator {
     func showSettings() {
         let viewController = SettingsViewController(repository: settingsRepository)
         viewController.title = "Settings"
+        viewController.navigationItem.largeTitleDisplayMode = .always
         
         navigationController.pushViewController(viewController, animated: true)
     }
