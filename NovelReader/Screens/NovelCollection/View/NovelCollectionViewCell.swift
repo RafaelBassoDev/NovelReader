@@ -48,13 +48,14 @@ class NovelCollectionViewCell: UICollectionViewCell, CellIdentifiable {
             poster.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
             poster.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
             poster.widthAnchor.constraint(equalToConstant: 160),
-            poster.heightAnchor.constraint(equalToConstant: 200)
+            poster.heightAnchor.constraint(equalToConstant: 220)
         ])
         
         title.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             title.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
             title.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            title.topAnchor.constraint(equalTo: poster.bottomAnchor, constant: 10),
             title.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
             title.heightAnchor.constraint(equalToConstant: 70)
         ])
