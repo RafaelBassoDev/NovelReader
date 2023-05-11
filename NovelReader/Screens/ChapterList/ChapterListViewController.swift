@@ -47,8 +47,8 @@ extension ChapterListViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chapter = viewModel.getChapter(at: indexPath)
-        coordinator?.showReadingView(for: chapter)
+        let selectedChapter = viewModel.getChapter(at: indexPath)
+        coordinator?.showChapter(number: selectedChapter.number)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
