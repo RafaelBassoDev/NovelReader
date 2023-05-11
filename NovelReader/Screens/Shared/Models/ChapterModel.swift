@@ -20,15 +20,3 @@ struct ChapterModel {
         self.content = content
     }
 }
-
-extension ChapterModel {
-    func withContent(_ newContent: String) -> Self {
-        return ChapterModel(number: number, title: title, subtitle: subtitle, content: newContent)
-    }
-}
-
-extension ChapterModel: Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.number == rhs.number
-    }
-}
