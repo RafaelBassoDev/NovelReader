@@ -77,9 +77,26 @@ extension Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
+    func showChapter(number: Int) {
+        Task(priority: .userInitiated) {
+            let chapter = await novelRepository.getChapter(number: number)
+            
+            if let chapter {
+                showReadingView(for: chapter)
+            } else {
+                showAlert(
+                    title: "Error",
+                    message: "Failed to load chapter data.",
+                    options: [
+                        .destructive(label: "Ok") { self.popToChapterList() }
+                    ]
+                )
+            }
+        }
+    }
+    
     func showNextChapter() {
         Task(priority: .userInitiated) {
-            
             let chapter = await novelRepository.getNextChapter()
             
             if let chapter {
@@ -100,7 +117,6 @@ extension Coordinator {
     
     func showPreviousChapter() {
         Task(priority: .userInitiated) {
-            
             let chapter = await novelRepository.getPreviousChapter()
             
             if let chapter {
