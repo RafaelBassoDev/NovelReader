@@ -10,6 +10,5 @@ import Foundation
 protocol NovelStorable: AnyObject {
     func getStoredNovels() async -> [NovelModel]
     func getStoredChapters(of novel: NovelModel) async -> [ChapterModel]
-    func getStoredChapter(number: Int) async -> ChapterModel?
-    func getStoredContent(of chapter: ChapterModel) async -> String
+    func getStoredChapter(of novel: NovelModel, number: Int) async -> ChapterModel?
 }
