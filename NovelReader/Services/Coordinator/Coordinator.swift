@@ -59,20 +59,13 @@ extension Coordinator {
     }
     
     func showReadingView(for chapter: ChapterModel) {
-        
-        Task(priority: .userInitiated) {
+        DispatchQueue.main.async {
+            let viewModel = ReadingViewModel(chapter: chapter)
+            let viewController = ReadingViewController(viewModel: viewModel, settingsRepository: self.settingsRepository)
+            viewController.coordinator = self
+            viewController.navigationItem.largeTitleDisplayMode = .never
             
-            let storedContent = await novelRepository.getChapterContent(chapter)
-            let chapterWithStoredContent = chapter.withContent(storedContent)
-            
-            DispatchQueue.main.async {
-                let viewModel = ReadingViewModel(chapter: chapterWithStoredContent)
-                let viewController = ReadingViewController(viewModel: viewModel, settingsRepository: self.settingsRepository)
-                viewController.coordinator = self
-                viewController.navigationItem.largeTitleDisplayMode = .never
-                
-                self.navigationController.pushViewController(viewController, animated: true)
-            }
+            self.navigationController.pushViewController(viewController, animated: true)
         }
     }
     
